@@ -34,6 +34,7 @@ public class UIEatHub {
 	}
 
 	static void ajouterClient() {
+		
 		System.out.print("Ajouter le téléphone");
 		String tel = sca.next();
 
