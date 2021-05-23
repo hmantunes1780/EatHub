@@ -35,10 +35,10 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		
-		System.out.print("Ajouter le téléphone");
+		System.out.print("Ajouter le telephone");
 		String tel = sca.next();
 
-		System.out.print("Ajouter le prénom:");
+		System.out.print("Ajouter le prenom:");
 		String prenom = sca.next();
 
 		System.out.print("Ajouter l'addresse:");
