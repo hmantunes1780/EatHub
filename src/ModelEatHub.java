@@ -9,6 +9,9 @@ public class ModelEatHub {
 		clients[lastClient][1]=prenom;
 		clients[lastClient][2]=adresse;
 		lastClient++;
+
+
+    
 	}	
 	
 	public void ajouterCommande(int client, String Commande, String heure) {
