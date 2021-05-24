@@ -7,6 +7,8 @@ public class UIEatHub {
 	
 	public static void main(String[] args) {
 		while(true) {
+
+      
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
