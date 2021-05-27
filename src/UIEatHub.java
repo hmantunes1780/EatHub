@@ -7,13 +7,11 @@ public class UIEatHub {
 	
 	public static void main(String[] args) {
 		while(true) {
-
-      
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
 					+ "\t3. Afficher la liste de tous les clients\n"
-					+ "\t4. Afficher la liste de toutes les commandes\n"  
+					+ "\t4. Afficher la liste de toutes les commandes\n"
 					+ "\t5. Effacer une commade\n"
 					+ "\t6. Effacer un client\n"
 					+ "\t7. Charger un fichier CLient\n"
