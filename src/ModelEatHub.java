@@ -1,3 +1,8 @@
+import client.Client;
+import client.ClientManager;
+import commande.Commande;
+import commande.CommandeManager;
+
 /**
  * Cette classe gère le modèle de données pour Eathub
  * @author shanl
@@ -6,8 +11,8 @@
 public class ModelEatHub {
 
 	//Variable qui garde les données des clients
-	String clients[][] = new String[20][5];
-	int lastClient=0;
+	ClientManager clients = new ClientManager();
+	CommandeManager commandes = new CommandeManager();
 
 	/**
 	 * Méthode pour ajouter un client
@@ -16,13 +21,13 @@ public class ModelEatHub {
 	 * @param adresse(adresse de l'utilisateur)
 	 */
 	public void ajouterClient(String tel, String prenom, String adresse) {
-		clients[lastClient][0]=tel;
-		clients[lastClient][1]=prenom;
-		clients[lastClient][2]=adresse;
-		lastClient++;
+		Client nouveauClient = new Client(tel, prenom, adresse, clients.generateClientID());
+		clients.putClient(nouveauClient);
 	}	
 	
-	public void ajouterCommande(int client, String Commande, String heure) {
+	public void ajouterCommande(Client client, String commande, String heure) {
+		Commande nouvelleCommande = new Commande(client, commande, heure, commandes.generateCommandeID());
+		commandes.putCommande(nouvelleCommande);
 	}
 	
 	public int trouvClient(String codeClients) {
@@ -37,6 +42,8 @@ public class ModelEatHub {
 		return s;
 	}
 	
+	// Comment temporaire
+	/*
 	public String donnerTousClients() {
 		String sortie="";
 		for(String[] ss: clients) {
@@ -45,5 +52,5 @@ public class ModelEatHub {
 			sortie+="\n";
 		}
 		return sortie;
-	}
+	}*/
 }

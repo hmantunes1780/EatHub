@@ -71,7 +71,8 @@ public class UIEatHub {
 
 	
 	static void afficherClients() {
-		System.out.println(model.donnerTousClients());
+		// Comment temporaire
+		//System.out.println(model.donnerTousClients());
 	}
 	
 	

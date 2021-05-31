@@ -1,0 +1,54 @@
+package client;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class ClientManager {
+	// Table d'hachage qui map les IDs de clients au objets de client
+	private HashMap<Integer, Client> clients = new HashMap<>();
+	
+	public ClientManager() {
+		loadSavedClients();
+	}
+	
+	// Dans le future, cette methode va chercher les clients serializer
+	private void loadSavedClients() {
+		
+	}
+	
+	public int generateClientID() {
+		return clients.keySet().size();
+	}
+	
+	public void putClient(Client toAdd) {
+		clients.put(toAdd.getClientID(), toAdd);
+	}
+	
+	public void removeClient(int clientID) {
+		clients.remove(clientID);
+	}
+	
+	public Client getClient(int clientID) {
+		return clients.get(clientID);
+	}
+	
+	public ArrayList<Client> getToutClients() {
+		ArrayList<Client> toutClients = new ArrayList<>();
+		for (Client client : clients.values()) {
+			toutClients.add(client);
+		}
+		return toutClients;
+	}
+	
+	// ATTENTION: Si le client n'est pas trouver, null va etre retourner
+	public Client getClientByTel(String telephoneNum) {
+		for (int key : clients.keySet()) {
+			Client currentClient = clients.get(key);
+			
+			if (telephoneNum.equalsIgnoreCase(currentClient.getTelephoneNum())) {
+				return currentClient;
+			}
+		}
+		return null;
+	}
+}
