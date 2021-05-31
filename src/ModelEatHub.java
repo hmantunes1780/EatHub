@@ -1,9 +1,20 @@
-
+/**
+ * Cette classe gère le modèle de données pour Eathub
+ * @author shanl
+ *
+ */
 public class ModelEatHub {
-	
+
+	//Variable qui garde les données des clients
 	String clients[][] = new String[20][5];
 	int lastClient=0;
 
+	/**
+	 * Méthode pour ajouter un client
+	 * @param tel (numéro de téléphone de l'utilisateur)
+	 * @param prenom(prénom de l'utilisateur)
+	 * @param adresse(adresse de l'utilisateur)
+	 */
 	public void ajouterClient(String tel, String prenom, String adresse) {
 		clients[lastClient][0]=tel;
 		clients[lastClient][1]=prenom;
