@@ -12,7 +12,7 @@ public class UIEatHub {
 	public static void main(String[] args) {
 		while(true) {
 
-       // on va maintenant demander le consommateur ce qu'il veut
+       // on va maintenant demander le consommateur ce qu'il veut 
 			/**
 			*
 			*
@@ -63,7 +63,8 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {
-		
+		System.out.println("Ajouter une commande");
+		String cmd = sca.next();
 	}
 	
 	static void effacerClient() {
