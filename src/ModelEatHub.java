@@ -19,8 +19,11 @@ public class ModelEatHub {
 	public void ajouterCommande(int client, String Commande, String heure) {
 	}
 	
-	public int trouvClient(String codeClients) {
-		return -1;
+	public int trouvClient(String numTel) {
+		for (int i=0; i<lastClient; i++)
+			if (clients[i][0].compareToIgnoreCase(numTel) == 0)
+				return i;
+			return -1;
 	}
 	
 	public void effacerClient(int no) {
