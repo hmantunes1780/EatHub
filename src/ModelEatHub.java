@@ -1,4 +1,9 @@
 
+/**
+ * 
+ * @author Angelo
+ *
+ */
 public class ModelEatHub {
 	
 	String clients[][] = new String[20][5];
