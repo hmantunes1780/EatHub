@@ -47,17 +47,15 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		
-		System.out.print("Ajouter le telephone");
+		System.out.print("C'est quoi votre numéro de téléphone?");
 		String tel = sca.next();
 
-		System.out.print("Ajouter le prenom:");
+		System.out.print("C'est quoi votre nom?");
 		String prenom = sca.next();
 
-		System.out.print("Ajouter l'addresse:");
+		System.out.print("C'est quoi votre adresse?");
 		String adr = sca.next();
 
-		System.out.print("Ajouter la commande");
-		String com = sca.next();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
@@ -65,10 +63,13 @@ public class UIEatHub {
 	static void ajouterCommande() {
 		System.out.println("Ajouter une commande");
 		String cmd = sca.next();
+		model.ajouterCommande(cmd);
 	}
 	
 	static void effacerClient() {
-		
+		System.out.println("Entre le nom du client que vous voulez effacer");
+		String effClient = sca.next();
+		model.effacerClient.remove(effClient);
 	}
 	
 	static void effacerCommande() {
