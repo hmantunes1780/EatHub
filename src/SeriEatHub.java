@@ -1,7 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
+/**
+* @author Errol
+*/
 public class SeriEatHub {
 
 	public static void chargerFichier(String nomFichier, ModelEatHub model) {
@@ -29,7 +33,19 @@ public class SeriEatHub {
     }
 
 	public static void sauverFichier(String nomFichier, ModelEatHub model) {
-		
+			    try {
+	        FileWriter myWriter = new FileWriter(nomFichier);
+	        String s = model.donnerTousClients();
+	        myWriter.write(s);
+	        //myWriter.write();
+	        //myWriter.write();
+
+	        myWriter.close();
+	        System.out.println("Successfully wrote to the file.");
+	      } catch (Exception e) {
+	        System.out.println("An error occurred.");
+	        e.printStackTrace();
+	      }
     }
 
 
