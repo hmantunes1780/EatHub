@@ -35,7 +35,8 @@ public class UIEatHub {
 		}
 	}
 	
-	/* test */
+	
+	 
 
 	static void ajouterClient() {
 		
@@ -48,14 +49,16 @@ public class UIEatHub {
 		System.out.print("Ajouter l'addresse:");
 		String adr = sca.next();
 
-		System.out.print("Ajouter la commande");
-		String com = sca.next();
+		
 
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
 	static void ajouterCommande() {
+		System.out.print("Ajouter la commande");
+		String com = sca.next();
 		
+		model.ajouterCommande(com);
 	}
 	
 	static void effacerClient() {
