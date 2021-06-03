@@ -111,7 +111,7 @@ public class UIEatHub {
 	}
 	
 	static void afficherCommandes() {
-		
+		System.out.print(model.donnerToutesCommandes());
 	}
 
 	
