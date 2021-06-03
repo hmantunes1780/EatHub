@@ -73,7 +73,24 @@ public class UIEatHub {
 	}
 	
 	static void effacerClient() {
+		System.out.print("Quel client doit être effacé ?");
+		 int lastClient = sca.nextInt();
 		
+		System.out.print("Ajouter le telephone");
+		 String tel = sca.next();
+		
+		
+		if(ModelEatHub.clients[lastClient][0].contains(tel)) {
+			  ModelEatHub.clients[lastClient][0] = null;
+		    ModelEatHub.clients[lastClient][1] = null;
+		    ModelEatHub.clients[lastClient][2] = null;
+		    ModelEatHub.clients[lastClient][3] = null;
+		    ModelEatHub.clients[lastClient][4] = null;
+		}
+		else {
+			System.out.println("Pas un client.");
+
+		}
 	}
 	
 	static void effacerCommande() {
