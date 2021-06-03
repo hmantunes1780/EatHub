@@ -49,7 +49,27 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {
+		System.out.print("Ajouter le telephone");
+		 String tel = sca.next();
+	    
+		System.out.print("Numéro de client? \n(ex : 0, 1, 2, 3...)\n:");
+		int lastClient= sca.nextInt();
 		
+		 if(ModelEatHub.clients[lastClient][0].contains(tel)) {
+		System.out.print("Ajouter la commande");
+		 sca.nextLine();
+		 String com = sca.nextLine();
+			ModelEatHub.clients[lastClient][3]= com;
+			
+			
+		System.out.print("Ajouter l'heure de livraison");
+			String liv = sca.next(); 
+			ModelEatHub.clients[lastClient][4] = liv;
+			model.ajouterCommande(com, liv);
+		 }
+		else {
+			  System.err.print("Incorrecte numero de telephone");
+		}
 	}
 	
 	static void effacerClient() {
