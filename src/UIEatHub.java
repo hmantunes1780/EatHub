@@ -94,7 +94,20 @@ public class UIEatHub {
 	}
 	
 	static void effacerCommande() {
+		System.out.println("Quel client?");
+		int lastClient  = sca.nextInt();
 		
+		System.out.print("Quelle commande?");
+		 sca.nextLine();
+		 String com = sca.nextLine(); 
+		
+		if(ModelEatHub.clients[lastClient][3].contains(com)) {
+			 ModelEatHub.clients[lastClient][3] = null;
+		   ModelEatHub.clients[lastClient][4] = null;
+		}
+		else {
+			System.out.println("Pas une commande.");
+		}
 	}
 	
 	static void afficherCommandes() {
