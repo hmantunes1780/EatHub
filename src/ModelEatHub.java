@@ -23,7 +23,7 @@ public class ModelEatHub {
 	}
 	
 	public String donnerToutesCommandes() {
-		String s="";
+		String s="(999)999-9099\tJean\t8 Young\tPizza\t8h15\n(888)888-8888\tPaul\t9 Young\tCalzone\t8h15";
 		return s;
 	}
 	

@@ -1,13 +1,9 @@
 import java.util.Scanner;
 
-/**
- * 
- * @author Cerise Camama
- *
- */
+
 public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
-    static ModelEatHub model = new ModelEatHub(); 
+    static ModelEatHub model = new ModelEatHub();
 	
 	public static void main(String[] args) {
 		while(true) {
@@ -39,17 +35,15 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		
-		System.out.print("Ajouter le telephone");
-		String tel = sca.next();
-
+		System.out.print("Ajouter le telephone:");
+		 String tel = sca.next();
+		
+    System.out.print("Ajouter l'addresse:");
+		 sca.nextLine();
+		 String adr = sca.nextLine();
+		
 		System.out.print("Ajouter le prenom:");
-		String prenom = sca.next();
-
-		System.out.print("Ajouter l'addresse:");
-		String adr = sca.next();
-
-		System.out.print("Ajouter la commande");
-		String com = sca.next();
+		 String prenom = sca.next();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
