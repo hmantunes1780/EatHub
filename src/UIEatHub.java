@@ -8,9 +8,7 @@ public class UIEatHub {
 	public static void main(String[] args) {
 		while(true) {	
 
-      /* asdf
-       
-       */
+     
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
@@ -36,6 +34,8 @@ public class UIEatHub {
 			}
 		}
 	}
+	
+	/* test */
 
 	static void ajouterClient() {
 		
