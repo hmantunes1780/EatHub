@@ -1,32 +1,16 @@
 import java.util.Scanner;
 
-/**
- * 
- * @author Nathaniel
- *
- */
+
 public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		while(true) {	
 
       /* asdf
        
        */
-=======
-		while(true) {
-
-       // on va maintenant demander le consommateur ce qu'il veut 
-			/**
-			*
-			*
-			* auteur Nathaniel
-			*
-			*/
->>>>>>> branch 'GrAAN' of https://github.com/hmantunes1780/EatHub
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
@@ -55,29 +39,27 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		
-		System.out.print("C'est quoi votre numéro de téléphone?");
+		System.out.print("Ajouter le telephone");
 		String tel = sca.next();
 
-		System.out.print("C'est quoi votre nom?");
+		System.out.print("Ajouter le prenom:");
 		String prenom = sca.next();
 
-		System.out.print("C'est quoi votre adresse?");
+		System.out.print("Ajouter l'addresse:");
 		String adr = sca.next();
 
+		System.out.print("Ajouter la commande");
+		String com = sca.next();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
 	static void ajouterCommande() {
-		System.out.println("Ajouter une commande");
-		String cmd = sca.next();
-		model.ajouterCommande(cmd);
+		
 	}
 	
 	static void effacerClient() {
-		System.out.println("Entre le nom du client que vous voulez effacer");
-		String effClient = sca.next();
-		model.effacerClient.remove(effClient);
+		
 	}
 	
 	static void effacerCommande() {
