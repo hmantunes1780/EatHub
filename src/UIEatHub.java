@@ -6,9 +6,11 @@ public class UIEatHub {
     static ModelEatHub model = new ModelEatHub(); 
 	
 	public static void main(String[] args) {
-		while(true) {
+		while(true) {	
 
-      
+      /* asdf
+       
+       */
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
