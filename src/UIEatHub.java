@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author 
+ * @author test
  *
  */
 public class UIEatHub {
