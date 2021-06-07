@@ -1,4 +1,3 @@
-
 public class ModelEatHub {
 	
 	String clients[][] = new String[20][5];
@@ -10,30 +9,42 @@ public class ModelEatHub {
 		clients[lastClient][2]=adresse;
 		lastClient++;
 	}	
-	//test
 	
 	public void ajouterCommande(int client, String Commande, String heure) {
+		clients[client][3]=Commande;
+		clients[client][4]=heure;
 	}
 	
-	public int trouvClient(String codeClients) {
-		return -1;
+	public int trouvClient (String codeClients) {
+		for (int i=0; i<lastClient; i++)
+			if (clients[i][0].compareToIgnoreCase(codeClients) == 0)
+				return i;
+			return -1;
 	}
 	
 	public void effacerClient(int no) {
+		clients [no] = clients[lastClient--];
+	}
+	
+	public void effacerCommande(int no) {
+		clients [no][3] = null;		
+		clients [no][4] = null;		
 	}
 	
 	public String donnerToutesCommandes() {
-		String s="(999)999-9999\tJean\t8 Young\tPizza\t8h15\n(888)888-8888\tPaul\t9 Young\tCalzone\t8h15";
-		return s;
-	}
-	
-	public String donnerTousClients() {
 		String sortie="";
 		for(String[] ss: clients) {
 			for(String s:ss)
 				sortie+= s+"\t";
 			sortie+="\n";
 		}
+		return sortie;
+	}
+	
+	public String donnerTousClients() {
+		String sortie="";
+		for(String[] ss: clients)
+			sortie+=ss[0]+ss[1]+ss[2]+"\n";
 		return sortie;
 	}
 }

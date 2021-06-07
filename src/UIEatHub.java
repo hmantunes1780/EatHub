@@ -1,14 +1,19 @@
+
 import java.util.Scanner;
 
-
+/**
+ * 
+ * @author 
+ *
+ */
 public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	
 	public static void main(String[] args) {
-		while(true) {	
+		while(true) {
 
-     
+			//sca.nextLine();
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
 					+ "\t2. Passer une commade\n"
@@ -34,46 +39,56 @@ public class UIEatHub {
 			}
 		}
 	}
-	
-	
-	 
 
 	static void ajouterClient() {
 		
 		System.out.print("Ajouter le telephone");
-		String tel = sca.next();
+		String tel = sca.nextLine();
 
 		System.out.print("Ajouter le prenom:");
-		String prenom = sca.next();
+		String prenom = sca.nextLine();
 
 		System.out.print("Ajouter l'addresse:");
-		String adr = sca.next();
-
-		
+		String adr = sca.nextLine();
+		sca.nextLine();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
 	static void ajouterCommande() {
-		System.out.print("Ajouter la commande");
-		String com = sca.next();
+
+		System.out.print("Quel est le teléphone du client");
+		String client = sca.nextLine();		
+
+		System.out.print("Quel est la commande");
+		String commande = sca.nextLine();		
+
+		System.out.print("Quel est l'heure de livraison");
+		String heure = sca.nextLine();
+		sca.nextLine();
 		
-		model.ajouterCommande(com);
+		int numclient=model.trouvClient(client);
+		if (numclient!=-1) model.ajouterCommande(numclient, commande, heure);
 	}
 	
 	static void effacerClient() {
-		
+		System.out.print("Quel est le teléphone du client");
+		String client = sca.next();		
+		int numclient=model.trouvClient(client);
+		if (numclient!=-1) model.effacerClient(numclient);
 	}
 	
 	static void effacerCommande() {
-		
+			System.out.print("Quel est le teléphone du client");
+			String client = sca.nextLine();		
+			int numclient=model.trouvClient(client);
+			if (numclient!=-1) model.effacerCommande(numclient);
 	}
 	
 	static void afficherCommandes() {
-		
+		System.out.print(model.donnerToutesCommandes());
 	}
 
-	
 	static void afficherClients() {
 		System.out.println(model.donnerTousClients());
 	}
