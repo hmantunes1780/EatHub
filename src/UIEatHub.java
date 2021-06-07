@@ -39,7 +39,7 @@ public class UIEatHub {
 			}
 		}
 	}
-
+ // TEST
 	static void ajouterClient() {
 		
 		System.out.print("Ajouter le telephone");
@@ -87,6 +87,7 @@ public class UIEatHub {
 	
 	static void afficherCommandes() {
 		System.out.print(model.donnerToutesCommandes());
+		
 	}
 
 	static void afficherClients() {
