@@ -34,11 +34,12 @@ public class ClientManager implements Serializable {
 	}
 	
 	public Client getClientByTel(String tel) {
-		for (Client client : clients.keySet()) {
+		for (Client client : clients.values()) {
 			if (client.getTelephoneNum().equalsIgnoreCase(tel)) {
 				return client;
 			}
 		}
+		return null;
 	}
 	
 	public ArrayList<Client> getToutClients() {

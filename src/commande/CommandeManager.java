@@ -2,6 +2,8 @@ package commande;
 
 import java.util.HashMap;
 
+import client.Client;
+
 public class CommandeManager {
 	// Table d'hachage qui map les IDs des commandes au objets de commande
 	private HashMap<Integer, Commande> commandes = new HashMap<>();
@@ -25,6 +27,15 @@ public class CommandeManager {
 
 	public void removeCommande(int commandeID) {
 		commandes.remove(commandeID);
+	}
+	
+	public Commande getClientCommande(Client client) {
+		for (Commande commande : commandes.values()) {
+			if (commande.getClient().getTelephoneNum().equalsIgnoreCase(client.getTelephoneNum())) {
+				return commande;
+			}
+		}
+		return null;
 	}
 
 	public Commande getCommande(int commandeID) {
