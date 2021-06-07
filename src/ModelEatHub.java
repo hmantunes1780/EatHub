@@ -5,11 +5,8 @@ public class ModelEatHub {
 	/*String clients[][] = new String[20][5];
 	int lastClient=0;*/
 	public class Client{
-		public void Client(String tel,String prenom,String adresse) {
-			this.NumeroTel=tel;
-			this.Nom=prenom;
-			this.Adresse=adresse;	
-		}
+			
+		
 		public void Client(String tel,String prenom,String adresse,String ville) {
 			this.NumeroTel=tel;
 			this.Nom=prenom;
@@ -20,8 +17,6 @@ public class ModelEatHub {
 		public String Nom;
 		public String Adresse;
 		public String ville;
-		public String platFavori;
-		public String platFavori2;
 	}
 	HashMap<String, Client>clients = new HashMap<String, Client>();
 	public void ajouterClient(String tel, String prenom, String adresse, String ville) {
@@ -46,8 +41,10 @@ public class ModelEatHub {
 		
 	}
 	
-	public int trouvClient(String codeClients) {
-		//lorsque numéro entré voir si correspond à un client
+	public int trouvClient(Client c,String tel) {
+		if(c.NumeroTel.matches(tel)) {
+		clients.get(c);
+		}
 		return -1;
 	}
 	
@@ -63,6 +60,11 @@ public class ModelEatHub {
 	}
 	
 	public String donnerTousClients() {
+		for(String i: clients.keySet()) {
+			int x=0;
+			x+=1;		
+			System.out.println("Client"+x+" \n"+i);
+		}
 		/*String sortie="";
 		for(String[] ss: clients) {
 			for(String s:ss)
