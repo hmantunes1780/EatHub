@@ -98,6 +98,7 @@ public class UIEatHub {
 	
 	static void chargerDonnees() {
 		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
+		System.out.println(model.donnerTousDonnees());
 	}
 	
 	static void sauverDonnees() {
