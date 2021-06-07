@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import client.Client;
+
 
 public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
@@ -54,7 +56,17 @@ public class UIEatHub {
 		sca.nextLine();}
 	
 	static void ajouterCommande() {
-		
+	System.out.println("Est-ce que vous êtes un client?");
+	String existantClient = sca.nextLine();
+	if(existantClient == "oui") {
+		System.out.println("Quel est votre numéro de téléphone?");
+		String TelClientExist = sca.nextLine();
+		Client client = model.trouvClient(TelClientExist);
+	}else {
+		ajouterClient();
+	}
+	System.out.println("Quelle est votre commande?");
+	String commande = sca.nextLine();
 	}
 	
 	static void effacerClient() {
@@ -65,7 +77,8 @@ public class UIEatHub {
 	}
 	
 	static void effacerCommande() {
-		
+		System.out.println("Donnez votre numéro de telephone");
+		String tel = sca.nextLine();
 	}
 	
 	static void afficherCommandes() {
