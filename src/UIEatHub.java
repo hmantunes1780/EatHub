@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author test
+ * @author adrien
  *
  */
 public class UIEatHub {
@@ -39,7 +39,7 @@ public class UIEatHub {
 			}
 		}
 	}
- // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 	
 	static void ajouterClient() {
 		
