@@ -34,7 +34,8 @@ public class ModelEatHub {
 		return -1;
 	}
 	
-	public void effacerClient(int no) {
+	public void effacerClient(String tel) {
+		clients.removeClient(clients.getClientByTel(tel).getClientID());
 	}
 	
 	public String donnerToutesCommandes() {

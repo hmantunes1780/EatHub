@@ -1,6 +1,8 @@
 package client;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client implements Serializable{
 	private String telephoneNum;
 	private String prenom;
 	private String adresse;

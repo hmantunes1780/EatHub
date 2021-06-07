@@ -58,7 +58,10 @@ public class UIEatHub {
 	}
 	
 	static void effacerClient() {
+		System.out.println("Donne numero de telephone");
+		String tel = sca.nextLine();
 		
+		model.effacerClient(tel);
 	}
 	
 	static void effacerCommande() {

@@ -1,9 +1,10 @@
 package client;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ClientManager {
+public class ClientManager implements Serializable {
 	// Table d'hachage qui map les IDs de clients au objets de client
 	private HashMap<Integer, Client> clients = new HashMap<>();
 	
@@ -30,6 +31,14 @@ public class ClientManager {
 	
 	public Client getClient(int clientID) {
 		return clients.get(clientID);
+	}
+	
+	public Client getClientByTel(String tel) {
+		for (Client client : clients.keySet()) {
+			if (client.getTelephoneNum().equalsIgnoreCase(tel)) {
+				return client;
+			}
+		}
 	}
 	
 	public ArrayList<Client> getToutClients() {
