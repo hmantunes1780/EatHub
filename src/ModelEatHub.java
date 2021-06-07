@@ -15,7 +15,7 @@ public class ModelEatHub {
 		clients[lastClient][2]=adresse;
 		lastClient++;
 	}	
-	
+	//ANgelo
 	public void ajouterCommande(int client, String Commande, String heure) {
 	}
 	
