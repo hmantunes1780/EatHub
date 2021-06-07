@@ -39,7 +39,8 @@ public class UIEatHub {
 			}
 		}
 	}
- // TEST
+ // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	
 	static void ajouterClient() {
 		
 		System.out.print("Ajouter le telephone");
