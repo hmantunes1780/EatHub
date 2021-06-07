@@ -6,7 +6,7 @@
  */
 public class ModelEatHub {
 	
-	String clients[][] = new String[20][5];
+	String clients[][] = new String[20][3];
 	int lastClient=0;
 
 	public void ajouterClient(String tel, String prenom, String adresse) {
