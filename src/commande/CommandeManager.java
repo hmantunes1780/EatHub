@@ -1,12 +1,13 @@
 package commande;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 import client.Client;
 
 public class CommandeManager {
 	// Table d'hachage qui map les IDs des commandes au objets de commande
-	private HashMap<Integer, Commande> commandes = new HashMap<>();
+	private HashMap<UUID, Commande> commandes = new HashMap<>();
 
 	public CommandeManager() {
 		loadSavedCommande();
@@ -17,15 +18,15 @@ public class CommandeManager {
 
 	}
 
-	public int generateCommandeID() {
-		return commandes.keySet().size();
+	public UUID generateCommandeID() {
+		return UUID.randomUUID();
 	}
 
 	public void putCommande(Commande toAdd) {
 		commandes.put(toAdd.getCommandeID(), toAdd);
 	}
 
-	public void removeCommande(int commandeID) {
+	public void removeCommande(UUID commandeID) {
 		commandes.remove(commandeID);
 	}
 	
@@ -38,7 +39,7 @@ public class CommandeManager {
 		return null;
 	}
 
-	public Commande getCommande(int commandeID) {
+	public Commande getCommande(UUID commandeID) {
 		return commandes.get(commandeID);
 	}
 }

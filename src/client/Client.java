@@ -1,21 +1,22 @@
 package client;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Client implements Serializable{
 	private String telephoneNum;
 	private String prenom;
 	private String adresse;
-	private int clientID;
+	private UUID clientID;
 	
-	public Client(String telephoneNum, String prenom, String adresse, int clientID) {
+	public Client(String telephoneNum, String prenom, String adresse, UUID clientID) {
 		this.telephoneNum = telephoneNum;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.clientID = clientID;
 	}
 	
-	public int getClientID() {
+	public UUID getClientID() {
 		return clientID;
 	}
 	

@@ -3,10 +3,11 @@ package client;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class ClientManager implements Serializable {
 	// Table d'hachage qui map les IDs de clients au objets de client
-	private HashMap<Integer, Client> clients = new HashMap<>();
+	private HashMap<UUID, Client> clients = new HashMap<>();
 	
 	public ClientManager() {
 		loadSavedClients();
@@ -17,29 +18,20 @@ public class ClientManager implements Serializable {
 		
 	}
 	
-	public int generateClientID() {
-		return clients.keySet().size();
+	public UUID generateClientID() {
+		return UUID.randomUUID();
 	}
 	
 	public void putClient(Client toAdd) {
 		clients.put(toAdd.getClientID(), toAdd);
 	}
 	
-	public void removeClient(int clientID) {
+	public void removeClient(UUID clientID) {
 		clients.remove(clientID);
 	}
 	
-	public Client getClient(int clientID) {
+	public Client getClient(UUID clientID) {
 		return clients.get(clientID);
-	}
-	
-	public Client getClientByTel(String tel) {
-		for (Client client : clients.values()) {
-			if (client.getTelephoneNum().equalsIgnoreCase(tel)) {
-				return client;
-			}
-		}
-		return null;
 	}
 	
 	public ArrayList<Client> getToutClients() {
@@ -52,9 +44,7 @@ public class ClientManager implements Serializable {
 	
 	// ATTENTION: Si le client n'est pas trouver, null va etre retourner
 	public Client getClientByTel(String telephoneNum) {
-		for (int key : clients.keySet()) {
-			Client currentClient = clients.get(key);
-			
+		for (Client currentClient : clients.values()) {
 			if (telephoneNum.equalsIgnoreCase(currentClient.getTelephoneNum())) {
 				return currentClient;
 			}
