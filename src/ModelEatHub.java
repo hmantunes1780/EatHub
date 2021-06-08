@@ -22,6 +22,7 @@ public class ModelEatHub {
     commande[lastCommande][0]=client;
     commande[lastCommande][1]=Commande;
     commande[lastCommande][2]=heure;
+    lastCommande++;
 }
 	
 	public int trouvClient(String numTel) {
