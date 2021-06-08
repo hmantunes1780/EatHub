@@ -3,6 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 
+
+/**
+ * 
+ * @author nathaniel
+ *
+ */
 public class SeriEatHub {
 
 	public static void chargerFichier(String nomFichier, ModelEatHub model) {

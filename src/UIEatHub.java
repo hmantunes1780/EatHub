@@ -1,5 +1,9 @@
 
 import java.util.Scanner;
+import java.util.Random;
+
+
+
 
 /**
  * 
@@ -7,10 +11,26 @@ import java.util.Scanner;
  *
  */
 public class UIEatHub {
+	
+
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	
-	public static void main(String[] args) {
+    String[] nom = new String[15]; //nom des gens qui passent les commandes
+    String []nourriture = new String [4]; // commande
+    int[] temps = new int [4]; //temps de livraison
+    String [] adresses = new String [4]; // adresses des clients
+    int [] status = new int [4]; // le status de livraison
+    double [] prixTotal = new double [4]; // prix commande
+
+    
+    
+    String [] nomNourriture = {"TEST1\t","TEST2\t","TEST3\t"};
+   double [] prix = {4,5,6};
+   
+   
+    
+   public static void main(String[] args) {
 		while(true) {
 
 			//sca.nextLine();
@@ -40,33 +60,37 @@ public class UIEatHub {
 		}
 	}
 
-	
+
 	static void ajouterClient() {
 		
-		System.out.print("Ajouter le telephone");
-		String tel = sca.nextLine();
+		System.out.print("Ajouter votre numéro de téléphone: ");
+		String tel = sca.next();
 
-		System.out.print("Ajouter le prenom:");
-		String prenom = sca.nextLine();
+		System.out.print("Ajouter votre prénom: ");
+		String prenom = sca.next();
 
-		System.out.print("Ajouter l'addresse:");
-		String adr = sca.nextLine();
-		sca.nextLine();
-
-		model.ajouterClient(tel, prenom, adr);
-	}
+		System.out.print("Ajouter votre adresse: ");
+		String adr = sca.next();
 	
-	static void ajouterCommande() {
+		model.ajouterClient(tel, prenom, adr);
+		System.out.println("Ton adresse est: "  + adr);
+		System.out.println("Ton telephone est: "  + tel);
+		System.out.println("Ton prenom est: "  + prenom);
+	
+	}
+   
+	
+   static void ajouterCommande() {
 
 		System.out.print("Quel est le teléphone du client");
-		String client = sca.nextLine();		
+		String client = sca.next();		
 
 		System.out.print("Quel est la commande");
-		String commande = sca.nextLine();		
+		String commande = sca.next();		
 
 		System.out.print("Quel est l'heure de livraison");
-		String heure = sca.nextLine();
-		sca.nextLine();
+		String heure = sca.next();
+		
 		
 		int numclient=model.trouvClient(client);
 		if (numclient!=-1) model.ajouterCommande(numclient, commande, heure);
@@ -89,6 +113,7 @@ public class UIEatHub {
 	static void afficherCommandes() {
 		System.out.print(model.donnerToutesCommandes());
 		
+		
 	}
 
 	static void afficherClients() {
@@ -98,7 +123,7 @@ public class UIEatHub {
 	
 	static void chargerDonnees() {
 		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
-		System.out.println(model.donnerTousDonnees());
+		
 	}
 	
 	static void sauverDonnees() {
