@@ -49,28 +49,21 @@ public class ModelEatHub {
 		ModelEatHub.Client remove = clients.remove(c);
 	}
 	
-	public String donnerToutesCommandes(String Commande,String heure) {
+	public String donnerToutesCommandes() {
 		for(String i: clients.keySet()) {
 			int x=0;
 			x+=1;		
-			System.out.println("Client"+x+" \n"+i+"\n"+Commande+"\n"+heure+"\n");
+			System.out.println("Client"+x+" \n"+i+"\n"+"\n"+"\n");
 		}
 		return null;
 	}
-	
-	public String donnerTousClients(Client c) {
-		for(String i: clients.keySet()) {
-			int x=0;
-			x+=1;		
-			System.out.println("Client"+x+" \n"+i+" "+ c);
-		}
-		/*String sortie="";
-		for(String[] ss: clients) {
-			for(String s:ss)
-				sortie+= s+"\t";
-			sortie+="\n";
-		}*/
-		return null;
+	String s = ""; 
+	public String donnerTousClients() {
+		s="";
+        clients.forEach((tel, v) -> {
+            s+= "Client "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
+        });
+		return s;
 	}
 }
 
