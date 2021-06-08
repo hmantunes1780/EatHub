@@ -17,12 +17,9 @@ public class ModelEatHub {
 	}	
 
 	String commande[][] = new String[20][5];
-  int lastCommande=0;
-	public void ajouterCommande(String client, String Commande, String heure) {
-    commande[lastCommande][0]=client;
-    commande[lastCommande][1]=Commande;
-    commande[lastCommande][2]=heure;
-    lastCommande++;
+	public void ajouterCommande(int client, String Commande, String heure) {
+		clients[client][3]=Commande;
+		clients[client][4]=heure;
 }
 	
 	public int trouvClient(String numTel) {

@@ -59,9 +59,13 @@ public class UIEatHub {
     System.out.println("Quelle est la commande");
     String commande = sca.next();
 
-    int numeroClient = model.ajouterCommande(client);
+    System.out.println("Quelle est l'heur de l'ivraison");
+    String heur = sca.next();
+
+
+    int numeroClient = model.trouvClient(client);
     if (numeroClient!=-1) 
-    System.out.println(model.ajouterCommande(numeroClient, commande));
+    model.ajouterCommande(numeroClient, commande,heur);
 	}
 	
 	static void effacerClient() {
