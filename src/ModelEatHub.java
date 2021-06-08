@@ -6,7 +6,7 @@
  */
 public class ModelEatHub {
 	
-	String clients[][] = new String[20][5];
+	String clients[][] = new String[20][3];
 	int lastClient=0;
 
 	public void ajouterClient(String tel, String prenom, String adresse) {
@@ -15,9 +15,15 @@ public class ModelEatHub {
 		clients[lastClient][2]=adresse;
 		lastClient++;
 	}	
-	
-	public void ajouterCommande(int client, String Commande, String heure) {
-	}
+
+	String commande[][] = new String[20][5];
+  int lastCommande=0;
+	public void ajouterCommande(String client, String Commande, String heure) {
+    commande[lastCommande][0]=client;
+    commande[lastCommande][1]=Commande;
+    commande[lastCommande][2]=heure;
+    lastCommande++;
+}
 	
 	public int trouvClient(String numTel) {
 		for (int i=0; i<lastClient; i++)
