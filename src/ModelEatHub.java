@@ -18,7 +18,7 @@ public class ModelEatHub {
 		public String Adresse;
 		public String ville;
 	}
-	HashMap<String, Client>clients = new HashMap<String, Client>();
+	static HashMap<String, Client>clients = new HashMap<String, Client>();
 	public void ajouterClient(String tel, String prenom, String adresse, String ville) {
 		Client c = new Client();
 		c.NumeroTel=tel;
