@@ -49,9 +49,12 @@ public class ModelEatHub {
 		clients.remove(c);
 	}
 	
-	public String donnerToutesCommandes() {
-		//montrer commande
-		//String s="dfseffdgsef";
+	public String donnerToutesCommandes(String Commande,String heure) {
+		for(String i: clients.keySet()) {
+			int x=0;
+			x+=1;		
+			System.out.println("Client"+x+" \n"+i+"\n"+Commande+"\n"+heure+"\n");
+		}
 		return null;
 	}
 	
