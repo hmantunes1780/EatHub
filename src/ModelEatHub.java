@@ -33,6 +33,7 @@ public class ModelEatHub {
 	}
 	
 	public void effacerClient(int no) {
+    
 	}
 	
 	public String donnerToutesCommandes() {
