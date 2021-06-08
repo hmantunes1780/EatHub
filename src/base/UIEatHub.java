@@ -102,7 +102,7 @@ public class UIEatHub {
 	
 	
 	static void chargerDonnees() {                     
-		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
+		
 	}
 	
 	static void sauverDonnees() {
