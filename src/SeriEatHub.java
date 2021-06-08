@@ -6,13 +6,14 @@ import java.util.Scanner;
 /**
 * @author Errol
 */
+
 public class SeriEatHub {
 
 	public static void chargerFichier(String nomFichier, ModelEatHub model) {  
 	    try {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
-          while (i=0; i<20; i++) {
+          for (int i=0;i<20;i++){
             //ajoute le 1er client
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();
