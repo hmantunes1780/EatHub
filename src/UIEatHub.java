@@ -53,7 +53,15 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {
-		
+		System.out.println("Quel est le teléphone du client");
+    String client = sca.nextLine();
+
+    System.out.println("Quelle est la commande");
+    String commande = sca.next();
+
+    int numeroClient = model.ajouterCommande(client);
+    if (numeroClient!=-1) 
+    System.out.println(model.ajouterCommande(numeroClient, commande));
 	}
 	
 	static void effacerClient() {
@@ -61,7 +69,10 @@ public class UIEatHub {
 	}
 	
 	static void effacerCommande() {
-		
+		System.out.println("Donner votre numero de telephone:");
+		String tel = sca.nextLine();
+    int numeroClient = model.trouvClient(tel);
+		model.effacerClient(numeroClient);
 	}
 	
 	static void afficherCommandes() {
