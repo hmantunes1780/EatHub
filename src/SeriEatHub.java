@@ -13,7 +13,7 @@ public class SeriEatHub {
 	    try {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
-          int i=0;
+          /*int i=0;
           while(i<clients){
             //ajoute le 1er client
 	          String Tel = myReader.nextLine();
