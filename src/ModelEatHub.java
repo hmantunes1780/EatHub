@@ -2,10 +2,10 @@ import java.util.HashMap;
 
 public class ModelEatHub {
 	
-	/*String clients[][] = new String[20][5];
-	int lastClient=0;*/
+	//singleton
 	public class Client{
-			
+		ModelEatHub model= new ModelEatHub();
+		ModelEatHub geInstance() {return model;}
 		
 		public void Client(String tel,String prenom,String adresse,String ville) {
 			this.NumeroTel=tel;
@@ -32,10 +32,6 @@ public class ModelEatHub {
 		lastClient++;*/
 
 	}	
-	public void ajouterClient(String tel, String prenom, String adresse) {
-		ajouterClient(tel,prenom,adresse,"");
-	}
-	
 
 	public void ajouterCommande(int client, String Commande, String heure) {
 		
