@@ -39,14 +39,14 @@ public class ModelEatHub {
 	
 	public int trouvClient(Client c,String tel) {
 		if(c.NumeroTel.matches(tel)) {
-		clients.get(c);
+		ModelEatHub.Client client = clients.get(c);
 		}
 		return -1;
 	}
 	
 	public void effacerClient(Client c) {
 		//enlever info client
-		clients.remove(c);
+		ModelEatHub.Client remove = clients.remove(c);
 	}
 	
 	public String donnerToutesCommandes(String Commande,String heure) {
@@ -58,11 +58,11 @@ public class ModelEatHub {
 		return null;
 	}
 	
-	public String donnerTousClients() {
+	public String donnerTousClients(Client c) {
 		for(String i: clients.keySet()) {
 			int x=0;
 			x+=1;		
-			System.out.println("Client"+x+" \n"+i);
+			System.out.println("Client"+x+" \n"+i+" "+ c);
 		}
 		/*String sortie="";
 		for(String[] ss: clients) {
