@@ -13,19 +13,19 @@ public class SeriEatHub {
 	    try {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
-          /*int i=0;
-          while(i<clients){
+          int i=0;
+
             //ajoute le 1er client
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();
 	          String adresse = myReader.nextLine();
 	          model.ajouterClient(Tel, Nom, adresse);
-          }
-	          /*
+
+	          
             //ajoute le 1er client
-	          String Tel = myReader.nextLine();
-	          String Nom = myReader.nextLine();
-	          String adresse = myReader.nextLine();
+	          Tel = myReader.nextLine();
+	          Nom = myReader.nextLine();
+	          adresse = myReader.nextLine();
 	          model.ajouterClient(Tel, Nom, adresse);
 
 	          //ajoute le 2e client
@@ -33,7 +33,7 @@ public class SeriEatHub {
 	          Nom = myReader.nextLine();
 	          adresse = myReader.nextLine();
 	          model.ajouterClient(Tel, Nom, adresse);
-	        */
+	        
 	        myReader.close();
 	      } catch (Exception e) {
 	        System.out.println("An error occurred.");
