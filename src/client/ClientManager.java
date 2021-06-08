@@ -1,5 +1,8 @@
 package client;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,15 +11,6 @@ import java.util.UUID;
 public class ClientManager implements Serializable {
 	// Table d'hachage qui map les IDs de clients au objets de client
 	private HashMap<UUID, Client> clients = new HashMap<>();
-	
-	public ClientManager() {
-		loadSavedClients();
-	}
-	
-	// Dans le future, cette methode va chercher les clients serializer
-	private void loadSavedClients() {
-		
-	}
 	
 	public UUID generateClientID() {
 		return UUID.randomUUID();
@@ -50,5 +44,17 @@ public class ClientManager implements Serializable {
 			}
 		}
 		return null;
+	}
+	
+	public void serialize(File file) {
+		try {
+			FileOutputStream fileOut = new FileOutputStream(file);
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			
+			out.writeObject(this);
+		} catch (Exception e) {
+			System.err.println("Erreur lors de la serialization de ClientManager!");
+			e.printStackTrace();
+		}
 	}
 }

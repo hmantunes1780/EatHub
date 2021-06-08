@@ -3,7 +3,7 @@ package client;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Client implements Serializable{
+public class Client implements Serializable {
 	private String telephoneNum;
 	private String prenom;
 	private String adresse;

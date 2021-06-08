@@ -1,10 +1,11 @@
 package commande;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import client.Client;
 
-public class Commande {
+public class Commande implements Serializable {
 	private Client client;
 	private String recette;
 	private String temps;

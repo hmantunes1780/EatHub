@@ -1,0 +1,2 @@
+clientsavepath: src\\serialization\\data\\Clients.txt
+commandesavepath: src\\serialization\\data\\Commandes.txt
