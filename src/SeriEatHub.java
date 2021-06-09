@@ -14,7 +14,8 @@ public class SeriEatHub {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
           int i=0;
-          while (i < 100) {
+           while (myReader.hasNextLine()) {
+
             System.out.println(i);
             i++;
             //ajoute le 1er client
@@ -23,16 +24,12 @@ public class SeriEatHub {
 	          String adresse = myReader.nextLine();
 	          model.ajouterClient(Tel, Nom, adresse);
 
-	          //ajoute le 2e client
-	          Tel = myReader.nextLine();
-	          Nom = myReader.nextLine();
-	          adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse);
+	        }
 	        
 	        myReader.close();
           }
 
-	      } catch (Exception e) {
+	      catch (Exception e) {
 	        System.out.println("An error occurred.");
 	        e.printStackTrace();
 	      }
