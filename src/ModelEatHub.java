@@ -70,7 +70,7 @@ public class ModelEatHub {
 	public String donnerTousClients() {
 		s="";
         clients.forEach((tel, v) -> {
-            s+= "\n\nClient "+"\nTï¿½lï¿½phone: "+ tel+"\n" +"Prï¿½nom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
+            s+= "\n\nClient "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
         });
 		return s;
 	}
