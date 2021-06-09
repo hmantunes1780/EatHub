@@ -13,11 +13,9 @@ public class SeriEatHub {
 	    try {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
-          int i=0;
+          
            while (myReader.hasNextLine()) {
 
-            System.out.println(i);
-            i++;
             //ajoute le 1er client
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();

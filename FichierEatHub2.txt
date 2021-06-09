@@ -3,18 +3,4 @@
 416-789-1234	Mamadou	Lakeshore	null	null	
 null	null	null	null	null	
 null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
+
