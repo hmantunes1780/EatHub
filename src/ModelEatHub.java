@@ -36,7 +36,7 @@ public class ModelEatHub {
 		c.ville=ville;	
 		clients.put(tel,c);
 	}	
-	static HashMap<String, commande>comm = new HashMap<String, commande>();
+	static HashMap<String, commande> comm = new HashMap<String, commande>();
 	public void ajouterCommande(String Commande, String heure) {
 		commande com=new commande();
 		com.commandeclient=Commande;

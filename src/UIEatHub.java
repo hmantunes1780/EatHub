@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -59,23 +60,23 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {
-		/*System.out.print("Ajouter le telephone");
+		/*System.out.print("Ajouter le telephone: ");
 		String tel = sca.next();
 	    
-		System.out.print("Numéro de client? ex : 1, 2, 3...");
-		int lastClient= sca.nextInt();
+		//System.out.print("Numéro de client? ex : 1, 2, 3...");
+		//int lastClient= sca.nextInt();
 		
 		 if(ModelEatHub.clients.containsValue(tel)) {
 			System.out.print("Ajouter la commande");
 			sca.nextLine();
-			String com = sca.nextLine();
-			ModelEatHub.clients = com;
+			String Commande = sca.nextLine();
+			//ModelEatHub.comm = Commande;
 			
 			
 			System.out.print("Ajouter l'heure de livraison");
-			String liv = sca.next(); 
-			ModelEatHub.clients[lastClient][4] = liv;
-			model.ajouterCommande(com, liv);
+			String heure = sca.next(); 
+			//ModelEatHub.comm=heure;
+			model.ajouterCommande(Commande, heure);
 		 }
 		else {
 				System.err.print("Incorrecte numero de telephone");
