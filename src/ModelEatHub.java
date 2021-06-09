@@ -13,11 +13,20 @@ public class ModelEatHub {
 			this.Adresse=adresse;
 			this.ville=ville;	
 		}
+		
 		public String NumeroTel;
 		public String Nom;
 		public String Adresse;
 		public String ville;
 	}
+	public class commande{
+		public void commande(String Commande,String heure) {
+			this.commandeclient=Commande;
+			this.heuredecommande=heure;		
+		}
+		public String commandeclient;
+		public String heuredecommande;
+		}
 	static HashMap<String, Client>clients = new HashMap<String, Client>();
 	public void ajouterClient(String tel, String prenom, String adresse, String ville) {
 		Client c = new Client();
@@ -26,15 +35,13 @@ public class ModelEatHub {
 		c.Adresse=adresse;
 		c.ville=ville;	
 		clients.put(tel,c);
-		/*clients[lastClient][0]=tel;
-		clients[lastClient][1]=prenom;
-		clients[lastClient][2]=adresse;
-		lastClient++;*/
-
 	}	
-
-	public void ajouterCommande(int client, String Commande, String heure) {
-		
+	static HashMap<String, commande>comm = new HashMap<String, commande>();
+	public void ajouterCommande(String Commande, String heure) {
+		commande com=new commande();
+		com.commandeclient=Commande;
+		com.heuredecommande=heure;
+		comm.put(Commande, com);
 	}
 	
 	public int trouvClient(Client c,String tel) {
@@ -48,20 +55,28 @@ public class ModelEatHub {
 		//enlever info client
 		ModelEatHub.Client remove = clients.remove(c);
 	}
-	
+	String z="";
 	public String donnerToutesCommandes() {
-		for(String i: clients.keySet()) {
+		z="";
+        clients.forEach((tel, v) -> {
+            z+= "Client: "+" ("+ tel+") "+"\n";
+        });
+        comm.forEach((Commande, d) -> {
+            z+= "Commande: " +Commande +"\n"+d.heuredecommande+"\n";
+        });
+		return z;
+		/*for(String i: clients.keySet()) {
 			int x=0;
 			x+=1;		
 			System.out.println("Client"+x+" \n"+i+"\n"+"\n"+"\n");
 		}
-		return null;
+		return null;*/
 	}
 	String s = ""; 
 	public String donnerTousClients() {
 		s="";
         clients.forEach((tel, v) -> {
-            s+= "Client "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
+            s+= "\n\nClient "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
         });
 		return s;
 	}
