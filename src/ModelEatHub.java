@@ -59,7 +59,7 @@ public class ModelEatHub {
 	public String donnerToutesCommandes() {
 		z="";
         clients.forEach((tel, v) -> {
-            z+= "Client: "+" ("+ tel+") "+"\n";
+            z+= "Client: "+" (Prénom: "+v.Nom+" Téléphone: "+ tel+") "+"\n";
         });
         comm.forEach((Commande, d) -> {
             z+= "Commande: " +Commande +"\n"+d.heuredecommande+"\n";
