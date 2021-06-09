@@ -20,12 +20,14 @@ public class ModelEatHub {
 		public String ville;
 	}
 	public class commande{
-		public void commande(String Commande,String heure) {
+		public void commande(String Commande,String heure, String tele) {
 			this.commandeclient=Commande;
-			this.heuredecommande=heure;		
+			this.heuredecommande=heure;
+			this.numtel=tele;
 		}
 		public String commandeclient;
 		public String heuredecommande;
+		public String numtel;
 		}
 	static HashMap<String, Client>clients = new HashMap<String, Client>();
 	public void ajouterClient(String tel, String prenom, String adresse, String ville) {
@@ -37,11 +39,12 @@ public class ModelEatHub {
 		clients.put(tel,c);
 	}	
 	static HashMap<String, commande> comm = new HashMap<String, commande>();
-	public void ajouterCommande(String Commande, String heure) {
+	public void ajouterCommande(String Commande, String heure,String tele) {
 		commande com=new commande();
+		com.numtel=tele;
 		com.commandeclient=Commande;
 		com.heuredecommande=heure;
-		comm.put(Commande, com);
+		comm.put(tele, com);
 	}
 	
 	public int trouvClient(Client c,String tel) {
@@ -55,16 +58,12 @@ public class ModelEatHub {
 		//enlever info client
 		ModelEatHub.Client remove = clients.remove(c);
 	}
-	String z="";
+	String y="";
 	public String donnerToutesCommandes() {
-		z="";
-        clients.forEach((tel, v) -> {
-            z+= "Client: "+" (Prénom: "+v.Nom+" Téléphone:  "+ tel+") "+"\n";
+        comm.forEach((tele, d) -> {
+            y+= "Client: (Téléphone: "+tele+"\n"+"Commande: " +d.commandeclient +"\n"+"Heure: "+d.heuredecommande+"\n";
         });
-        comm.forEach((Commande, d) -> {
-            z+= "Commande: " +Commande +"\n"+d.heuredecommande+"\n";
-        });
-		return z;
+		return y;
 	}
 	String s = ""; 
 	public String donnerTousClients() {
