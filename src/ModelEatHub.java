@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class ModelEatHub {
-	
+	 
 	//singleton
 	public class Client{
 		ModelEatHub model= new ModelEatHub();
@@ -76,7 +76,7 @@ public class ModelEatHub {
 	public String donnerTousClients() {
 		s="";
         clients.forEach((tel, v) -> {
-            s+= "\n\nClient "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
+            s+= "\n\nClient "+"\nTï¿½lï¿½phone: "+ tel+"\n" +"Prï¿½nom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
         });
 		return s;
 	}
