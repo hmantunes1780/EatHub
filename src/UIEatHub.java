@@ -69,7 +69,12 @@ public class UIEatHub {
 	}
 	
 	static void effacerClient() {
-		
+		System.out.print("Quel est le teléphone du client");
+			String client = sca.nextLine();		
+
+			int numeroClient = model.trouvClient(client);
+      model.effacerClient(numeroClient);
+
 	}
 	
 	static void effacerCommande() {
