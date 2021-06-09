@@ -1,14 +1,18 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+
+
+
 /**
  * @ Cerise Camama
  *
  */
 public class UIEatHub {
+	
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
-
 	
 	public static void main(String[] args) {
 		while(true) {
@@ -40,7 +44,7 @@ public class UIEatHub {
 		}
 	}
 
-	static void ajouterClient() {
+	public static void ajouterClient() {
 		
 		
 		System.out.print("Ajouter le telephone:");
@@ -60,52 +64,57 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {
-		/*System.out.print("Ajouter le telephone: ");
+		
+		System.out.print("Ajouter le telephone");
 		String tel = sca.next();
 	    
-		//System.out.print("Numéro de client? ex : 1, 2, 3...");
-		//int lastClient= sca.nextInt();
 		
 		 if(ModelEatHub.clients.containsValue(tel)) {
 			System.out.print("Ajouter la commande");
 			sca.nextLine();
-			String Commande = sca.nextLine();
-			//ModelEatHub.comm = Commande;
+			String com = sca.nextLine();
+			//ModelEatHub.clients.put(, com);
+			//model.Commande = com;
 			
 			
 			System.out.print("Ajouter l'heure de livraison");
-			String heure = sca.next(); 
-			//ModelEatHub.comm=heure;
-			model.ajouterCommande(Commande, heure);
+			String liv = sca.next(); 
+			//ModelEatHub.clients.heure = liv;
+			//ModelEatHub.clients.ajouterCommande(com, liv);
 		 }
 		else {
 				System.err.print("Incorrecte numero de telephone");
-		}*/
+		}
 		
 	}
 	
 	static void effacerClient() {
-		/*System.out.print("Quel client doit être effacé ?");
-		int lastClient = sca.nextInt();
-		
 		System.out.print("Ajouter le telephone");
-		String tel = sca.next();
+		String tel = sca.next();	
 		
-		
-		if(ModelEatHub.clients[lastClient][0].contains(tel)) {
-			ModelEatHub.clients[lastClient][0] = null;
-		    ModelEatHub.clients[lastClient][1] = null;
-		    ModelEatHub.clients[lastClient][2] = null;
-		    ModelEatHub.clients[lastClient][3] = null;
-		    ModelEatHub.clients[lastClient][4] = null;
+		if(ModelEatHub.clients.containsKey(tel)) {
+			ModelEatHub.clients.clear();
+
 		}
 		else {
-			System.out.println("Pas un client.");
+			System.err.println("Pas un client.");
 
-		}*/
+		}
 	}
 	
 	static void effacerCommande() {
+		System.out.print("Ajouter le telephone");
+		String tel = sca.next();	
+		
+		if(ModelEatHub.clients.containsKey(tel)) {
+			
+
+		}
+		else {
+			System.err.println("Pas une commande.");
+
+		}
+	
 		/*System.out.println("Quel client?");
 		int lastClient  = sca.nextInt();
 		
