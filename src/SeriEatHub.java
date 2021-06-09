@@ -13,13 +13,13 @@ public class SeriEatHub {
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();
 	          String adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse);
+	          model.ajouterClient(Tel, Nom, adresse, "Mississauga");
 
 	          //ajoute le 2e client
 	          Tel = myReader.nextLine();
 	          Nom = myReader.nextLine();
 	          adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse);
+	          model.ajouterClient(Tel, Nom, adresse, "Mississauga");
 	          
 	        myReader.close();
 	      } catch (Exception e) {

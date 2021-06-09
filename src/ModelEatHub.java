@@ -65,12 +65,6 @@ public class ModelEatHub {
             z+= "Commande: " +Commande +"\n"+d.heuredecommande+"\n";
         });
 		return z;
-		/*for(String i: clients.keySet()) {
-			int x=0;
-			x+=1;		
-			System.out.println("Client"+x+" \n"+i+"\n"+"\n"+"\n");
-		}
-		return null;*/
 	}
 	String s = ""; 
 	public String donnerTousClients() {
