@@ -22,7 +22,7 @@ public class UIEatHub {
 
 			//suivant la reponse faire des choses differentes
 			switch (sca.nextInt()) {
-			case 1: ajouterClient();afficherClients(); break;
+			case 1: ajouterClient(); break;
 			case 2: ajouterCommande(); break;
 			case 3: afficherClients(); break;
 			case 4: afficherCommandes(); break;
@@ -37,31 +37,31 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		
-		System.out.print("Ajouter le telephone\n");
-		String tel = sca.nextLine();
+		System.out.println("Ajouter le telephone:");
+		String tel = sca.next();
+    
+		System.out.println("Ajouter le prenom:");
+		String prenom = sca.next();
 
-		System.out.print("Ajouter le prenom:");
-		String prenom = sca.nextLine();
-
-		System.out.print("Ajouter l'addresse:");
-		String adr = sca.nextLine();
+		System.out.println("Ajouter l'addresse:");
+		String adr = sca.next();
     sca.nextLine();
 
-		System.out.print("Ajouter la commande");
-		String com = sca.nextLine();
+		System.out.println("Ajouter la commande");
+		String com = sca.next();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
 	static void ajouterCommande() {    // 1.
 		System.out.println("Quel est le teléphone du client");
-    String client = sca.nextLine();
+    String client = sca.next();
 
     System.out.println("Quelle est la commande");
-    String commande = sca.nextLine();
+    String commande = sca.next();
 
-    System.out.println("Quelle est l'heur de l'ivraison");
-    String heur = sca.nextLine();
+    System.out.println("Quelle est l'heure de livraison");
+    String heur = sca.next();
 
 
     int numeroClient = model.trouvClient(client);
@@ -71,7 +71,7 @@ public class UIEatHub {
 	
 	static void effacerClient() {  // 2.
 		System.out.print("Quel est le teléphone du client");
-			String client = sca.nextLine();		
+			String client = sca.next();		
 
 			int numeroClient = model.trouvClient(client);
       model.effacerClient(numeroClient);
@@ -80,13 +80,19 @@ public class UIEatHub {
 	
 	static void effacerCommande() {   // 3. 
 		System.out.println("Donner votre numero de telephone:");
-		String tel = sca.nextLine();
+		String tel = sca.next();
     int numeroClient = model.trouvClient(tel);
 		model.effacerClient(numeroClient);
 	}
 	
 	static void afficherCommandes() {  // 4. 
-		System.out.print(model.donnerToutesCommandes());
+	    System.out.println("Quel est le teléphone du client");
+    String client = sca.next();
+
+     System.out.println("Quelle est la commande");
+     String commande = sca.next();
+
+     System.out.print(model.donnerToutesCommandes());
 	}
 
 	
