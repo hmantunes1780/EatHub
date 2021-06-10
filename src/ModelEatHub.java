@@ -47,17 +47,16 @@ public class ModelEatHub {
 		comm.put(tele, com);
 	}
 	
-	public int trouvClient(Client c,String tel) {
-		if(c.NumeroTel.matches(tel)) {
-		ModelEatHub.Client client = clients.get(c);
-		}
-		return -1;
+	public Client trouvClient(String tel) {
+		ModelEatHub.Client client = clients.get(tel);
+		return client;
 	}
 	
 	public void effacerClient(Client c) {
 		//enlever info client
-		ModelEatHub.Client remove = clients.remove(c);
+		ModelEatHub.Client removed = clients.remove(c);
 	}
+	
 	String y="";
 	public String donnerToutesCommandes() {
         comm.forEach((tele, d) -> {

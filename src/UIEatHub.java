@@ -69,7 +69,7 @@ public class UIEatHub {
 		String tel = sca.next();
 	    
 		
-		 if(ModelEatHub.clients.containsValue(tel)) {
+		 if(ModelEatHub.clients.containsKey(tel)) {
 			System.out.print("Ajouter la commande");
 			sca.nextLine();
 			String com = sca.nextLine();
@@ -93,8 +93,6 @@ public class UIEatHub {
 		String tel = sca.next();	
 		
 		if(ModelEatHub.clients.containsKey(tel)) {
-			ModelEatHub.clients.clear();
-
 		}
 		else {
 			System.err.println("Pas un client.");
