@@ -18,7 +18,7 @@ public class UIEatHub {
 					+ "\t2. Passer une commande\n"
 					+ "\t3. Afficher la liste de tous les clients\n"
 					+ "\t4. Afficher la liste de toutes les commandes\n"  
-					+ "\t5. Effacer une commade\n"
+					+ "\t5. Effacer une commande\n"
 					+ "\t6. Effacer un client\n"
 					+ "\t7. Charger un fichier CLient\n"
 					+ "\t8. Sauvegarder un fichier client\n"
