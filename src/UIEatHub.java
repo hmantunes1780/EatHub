@@ -1,10 +1,5 @@
 import java.util.HashMap;
 import java.util.Scanner;
-
-
-
-
-
 /**
  * @ Cerise Camama
  *
@@ -23,7 +18,7 @@ public class UIEatHub {
 					+ "\t2. Passer une commande\n"
 					+ "\t3. Afficher la liste de tous les clients\n"
 					+ "\t4. Afficher la liste de toutes les commandes\n"  
-					+ "\t5. Effacer une commade\n"
+					+ "\t5. Effacer une commande\n"
 					+ "\t6. Effacer un client\n"
 					+ "\t7. Charger un fichier CLient\n"
 					+ "\t8. Sauvegarder un fichier client\n"
@@ -61,6 +56,7 @@ public class UIEatHub {
 		String ville = sca.next();	
 	
 		model.ajouterClient(tel, prenom, adr, ville);
+		
 	}
 	
 	static void ajouterCommande() {
@@ -71,16 +67,15 @@ public class UIEatHub {
 		
 		 if(ModelEatHub.clients.containsKey(tel)) {
 			System.out.print("Ajouter la commande");
+			
 			sca.nextLine();
 			String com = sca.nextLine();
-			//ModelEatHub.clients.put(, com);
-			//model.Commande = com;
 			
 			
 			System.out.print("Ajouter l'heure de livraison");
+			
 			String liv = sca.next(); 
-			//ModelEatHub.clients.heure = liv;
-			//ModelEatHub.clients.ajouterCommande(com, liv);
+			model.ajouterCommande(com, liv, tel);
 		 }
 		else {
 				System.err.print("Incorrecte numero de telephone");
