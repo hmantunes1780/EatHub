@@ -38,16 +38,16 @@ public class UIEatHub {
 	static void ajouterClient() {
 		
 		System.out.print("Ajouter le telephone");
-		String tel = sca.next();
+		String tel = sca.nextLine();
 
 		System.out.print("Ajouter le prenom:");
-		String prenom = sca.next();
+		String prenom = sca.nextLine();
 
 		System.out.print("Ajouter l'addresse:");
-		String adr = sca.next();
+		String adr = sca.nextLine();
 
 		System.out.print("Ajouter la commande");
-		String com = sca.next();
+		String com = sca.nextLine();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
@@ -57,10 +57,10 @@ public class UIEatHub {
     String client = sca.nextLine();
 
     System.out.println("Quelle est la commande");
-    String commande = sca.next();
+    String commande = sca.nextLine();
 
     System.out.println("Quelle est l'heur de l'ivraison");
-    String heur = sca.next();
+    String heur = sca.nextLine();
 
 
     int numeroClient = model.trouvClient(client);
