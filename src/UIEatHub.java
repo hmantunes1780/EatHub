@@ -2,8 +2,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-
-
+//TODO: 
 
 /**
  * 
@@ -47,9 +46,9 @@ public class UIEatHub {
 
 			//suivant la reponse faire des choses differentes
 			switch (sca.nextInt()) {
-			case 1: ajouterClient(); //afficherClients(); break;
-			case 2: ajouterCommande(); //break;
-			case 3: afficherClients(); //break;
+			case 1: ajouterClient(); afficherClients(); break;
+			case 2: ajouterCommande(); break;
+			case 3: afficherClients(); break;
 			case 4: afficherCommandes(); break;
 			case 5: effacerCommande(); break;
 			case 6: effacerClient(); break;
@@ -61,28 +60,29 @@ public class UIEatHub {
 	}
 
 
-	static void ajouterClient() {
-		
-		System.out.print("Ajouter votre numéro de téléphone: ");
-		String tel = sca.next();
 
-		System.out.print("Ajouter votre prénom: ");
-		String prenom = sca.next();
+
+	static void ajouterClient() {
+		sca.nextLine();
+		System.out.print("Ajouter votre numero de telephone: ");
+		String tel = sca.nextLine();
+
+		System.out.print("Ajouter votre prenom: ");
+		String prenom = sca.nextLine();
 
 		System.out.print("Ajouter votre adresse: ");
-		String adr = sca.next();
+		String adr = sca.nextLine();
 	
 		model.ajouterClient(tel, prenom, adr);
-		System.out.println("Ton adresse est: "  + adr);
-		System.out.println("Ton telephone est: "  + tel);
-		System.out.println("Ton prenom est: "  + prenom);
-	
+
 	}
-   
+
+	
+	String clientExistant = "";
 	
    static void ajouterCommande() {
 
-		System.out.print("Quel est le teléphone du client");
+		System.out.print("Quel est le telephone du client");
 		String client = sca.next();		
 
 		System.out.print("Quel est la commande");
@@ -97,27 +97,26 @@ public class UIEatHub {
 	}
 	
 	static void effacerClient() {
-		System.out.print("Quel est le teléphone du client");
+		System.out.print("Quel est le telephone du client");
 		String client = sca.next();		
 		int numclient=model.trouvClient(client);
 		if (numclient!=-1) model.effacerClient(numclient);
 	}
 	
 	static void effacerCommande() {
-			System.out.print("Quel est le teléphone du client");
-			String client = sca.nextLine();		
+			System.out.print("Quel est le telephone du client");
+			String client = sca.next();		
 			int numclient=model.trouvClient(client);
 			if (numclient!=-1) model.effacerCommande(numclient);
 	}
 	
 	static void afficherCommandes() {
-		System.out.print(model.donnerToutesCommandes());
-		
-		
+		System.out.print(model.donnerToutesCommandes());	
 	}
 
 	static void afficherClients() {
 		System.out.println(model.donnerTousClients());
+	
 	}
 	
 	
@@ -129,5 +128,17 @@ public class UIEatHub {
 	static void sauverDonnees() {
 		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);		
 	}
+
+	static void voirMenu() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	
+	
+	
+	
 	
 }
+
