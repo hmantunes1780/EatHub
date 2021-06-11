@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Random;
 
@@ -98,17 +97,24 @@ public class UIEatHub {
 	
 	static void effacerClient() {
 		System.out.print("Quel est le telephone du client");
-		String client = sca.next();		
-		int numclient=model.trouvClient(client);
-		if (numclient!=-1) model.effacerClient(numclient);
+		//int numclient= sca.nextInt();	
+		sca.nextLine();
+		String numclient= sca.nextLine();
+		model.trouvClient(numclient);
+		int numclient1=model.trouvClient(numclient);
+		if (numclient1!=-1) {
+			model.effacerClient(numclient1);
+		} else {
+			System.err.println("Pas un client dans notre systeme");
+		}
 	}
-	
+	// test
 	static void effacerCommande() {
 			System.out.print("Quel est le telephone du client");
-			String client = sca.next();		
-			int numclient=model.trouvClient(client);
-			if (numclient!=-1) model.effacerCommande(numclient);
-	}
+			String tel = sca.next();
+			
+			}
+	
 	
 	static void afficherCommandes() {
 		System.out.print(model.donnerToutesCommandes());	
@@ -129,16 +135,10 @@ public class UIEatHub {
 		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);		
 	}
 
-	static void voirMenu() {
-		// TODO Auto-generated method stub
-		
-		
-	}
-
+	
 	
 	
 	
 	
 	
 }
-
