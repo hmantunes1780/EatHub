@@ -1,4 +1,9 @@
 package base;
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.UUID;
+
 import client.Client;
 import client.ClientManager;
 import commande.Commande;
@@ -39,6 +44,13 @@ public class ModelEatHub {
 	 * @param adresse(adresse de l'utilisateur)
 	 */
 	public void ajouterClient(String tel, String prenom, String adresse) {
+		String absTel = Client.stripTelephoneNum(tel);
+		
+		if (clients.getClientByAbsTel(absTel) != null) {
+			System.out.println("Erreur, ce client existe deja!");
+			return;
+		}
+		
 		Client nouveauClient = new Client(tel, prenom, adresse, clients.generateClientID());
 		clients.putClient(nouveauClient);
 	}	
@@ -49,37 +61,68 @@ public class ModelEatHub {
 	}
 	
 	public Client trouvClient(String tel) {
-		return clients.getClientByTel(tel);
+		return clients.getClientByAbsTel(Client.stripTelephoneNum(tel));
 		
 	}
 	
 	public void effacerClient(String tel) {
-		clients.removeClient(clients.getClientByTel(tel).getClientID());
+		Client client = clients.getClientByAbsTel(Client.stripTelephoneNum(tel));
+		
+		if (client == null) {
+			System.out.println("Erreur, ce client n'existe pas!");
+			return;
+		}
+		
+		clients.removeClient(client.getClientID());
 	}
 	
 	public String donnerToutesCommandes() {
-		String s="(999)999-9999\tJean\t8 Young\tPizza\t8h15\n(888)888-8888\tPaul\t9 Young\tCalzone\t8h15";
-		return s;
+		String toPrint = "";
+		for (Commande commande : commandes.getToutCommandes()) {
+			String line = "Tel: " + commande.getClient().getTelephoneNum()
+					+ "\t Addresse: " + commande.getClient().getAdresse()
+					+ "\t Temps: " + commande.getTemps()
+					+ "\t Recette: " + commande.getRecette() + "\n";
+			toPrint += line;
+		}
+		if (toPrint.equals("")) {
+			return "Aucune commande ajouter...";
+		}
+		return toPrint;
 	}
 	
-	public void effacerCommande(String tel) {
-		Commande commande = commandes.getClientCommande(trouvClient(tel));
-		commandes.removeCommande(commande.getCommandeID());
+	public void effacerCommande(UUID commandeID) {
+		commandes.removeCommande(commandeID);
+	}
+	
+	public HashMap<UUID, Entry<Integer, String>> getClientCommandes(String tel) {
+		HashMap<UUID, Entry<Integer, String>> clientCommandes = new HashMap<>();
+		Client client = clients.getClientByAbsTel(Client.stripTelephoneNum(tel));
+		int i = 1;
+		for (Commande commande : commandes.getClientCommandes(client)) {
+			String line = i + ". | Temps: " + commande.getTemps()
+					+ "\t Recette: " + commande.getRecette() + "\n";
+			clientCommandes.put(commande.getCommandeID(), new AbstractMap.SimpleEntry<Integer, String>(i, line));
+			i++;
+		}
+		return clientCommandes;
 	}
 	
 	public void sauverDonnees() {
 		serialManager.saveData();
 	}
 	
-	// Comment temporaire
-	/*
 	public String donnerTousClients() {
-		String sortie="";
-		for(String[] ss: clients) {
-			for(String s:ss)
-				sortie+= s+"\t";
-			sortie+="\n";
+		String toPrint = "";
+		for (Client client : clients.getToutClients()) {
+			String line = "Tel: " + client.getTelephoneNum()
+					+ "\t Prenom: " + client.getPrenom()
+					+ "\t Adresse: " + client.getAdresse() + "\n";
+			toPrint += line;
 		}
-		return sortie;
-	}*/
+		if (toPrint.equals("")) {
+			return "Aucun client ajouter...";
+		}
+		return toPrint;
+	}
 }

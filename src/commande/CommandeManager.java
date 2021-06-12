@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -25,17 +27,26 @@ public class CommandeManager implements Serializable {
 		commandes.remove(commandeID);
 	}
 	
-	public Commande getClientCommande(Client client) {
+	public ArrayList<Commande> getClientCommandes(Client client) {
+		ArrayList<Commande> clientCommandes = new ArrayList<>();
 		for (Commande commande : commandes.values()) {
-			if (commande.getClient().getTelephoneNum().equalsIgnoreCase(client.getTelephoneNum())) {
-				return commande;
+			if (commande.getClient().getAbsoluteTelephoneNum().equals(client.getAbsoluteTelephoneNum())) {
+				clientCommandes.add(commande);
 			}
 		}
-		return null;
+		return clientCommandes;
 	}
 
 	public Commande getCommande(UUID commandeID) {
 		return commandes.get(commandeID);
+	}
+	
+	public ArrayList<Commande> getToutCommandes() {
+		ArrayList<Commande> toutCommandes = new ArrayList<>();
+		for (Commande commande : commandes.values()) {
+			toutCommandes.add(commande);
+		}
+		return toutCommandes;
 	}
 	
 	public void serialize(File file) {

@@ -1,5 +1,8 @@
 package base;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.UUID;
 
 import client.Client;
 
@@ -24,7 +27,6 @@ public class UIEatHub {
 					+ "\t9. Quitter le programme");
 
 			//suivant la reponse faire des choses differentes
-		//	if(!sca.hasNextInt())sca.reset(); 
 			int input = 0;
 			try {
 				input = Integer.valueOf(sca.nextLine());
@@ -42,13 +44,14 @@ public class UIEatHub {
 			case 6: effacerClient(); break;
 			case 7: chargerDonnees(); break;
 			case 8: sauverDonnees(); break;
-			default: return;
+			default: 
+				sauverDonnees();
+				return;
 			}
 		}
 	}
 
 	static void ajouterClient() {
-		
 		System.out.println("Ajouter le telephone:");
 		String tel = sca.nextLine();
 
@@ -59,20 +62,29 @@ public class UIEatHub {
 		String adr = sca.nextLine();
 
 		model.ajouterClient(tel, prenom, adr);
+		System.out.println("Client '" + prenom + "' ajouter!");
 	}
 	
 	static void ajouterCommande() {
-	System.out.println("Est-ce que vous êtes un client?");
-	String existantClient = sca.nextLine();
-	if(existantClient == "oui") {
-		System.out.println("Quel est votre numéro de téléphone?");
-		String TelClientExist = sca.nextLine();
-		Client client = model.trouvClient(TelClientExist);
-	}else {
-		ajouterClient();
-	}
-	System.out.println("Quelle est votre commande?");
-	String commande = sca.nextLine();
+		System.out.println("Est-ce que vous êtes un client? (O/N)");
+		String existantClient = sca.nextLine();
+		Client client = null;
+		if(existantClient.equalsIgnoreCase("O")) {
+			System.out.println("Quel est votre numéro de téléphone?");
+			String TelClientExist = sca.nextLine();
+			client = model.trouvClient(TelClientExist);
+		} else {
+			ajouterClient();
+			ajouterCommande();
+		}
+		System.out.println("Quelle est votre commande?");
+		String commande = sca.nextLine();
+		
+		System.out.println("Pour quelle temps?");
+		String temps = sca.nextLine();
+		
+		model.ajouterCommande(client, commande, temps);
+		System.out.println("Commande '" + commande + "' ajouter pour " + temps + "!");
 	}
 	
 	static void effacerClient() {
@@ -80,24 +92,50 @@ public class UIEatHub {
 		String tel = sca.nextLine();
 		
 		model.effacerClient(tel);
+		System.out.println("Client effacer!");
 	}
 	
 	static void effacerCommande() {
 		System.out.println("Donnez votre numéro de telephone");
 		String tel = sca.nextLine();
+		
+		HashMap<UUID, Entry<Integer, String>> commandes = model.getClientCommandes(tel);
+		System.out.println("Quelle commande voulez vous effacer?");
+		for (Entry<Integer, String> entry : commandes.values()) {
+			System.out.println(entry.getValue());
+		}
+		int index = -1;
+		while (true) {
+			try {
+				index = Integer.valueOf(sca.nextLine());
+				if (index > commandes.size() || index < 1) {
+					System.out.println("Aucune commande trouver! Essaie encore.");
+					continue;
+				}
+				break;
+			} catch (NumberFormatException e) {
+				System.out.println("Cela n'est pas un numero! Essaie encore.");
+			}
+		}
+		
+		for (UUID key : commandes.keySet()) {
+			Entry<Integer, String> entry = commandes.get(key);
+			
+			if (entry.getKey() == index) {
+				model.effacerCommande(key);
+				System.out.println("Commande effacer!");
+				break;
+			}
+		}
 	}
 	
 	static void afficherCommandes() {
-		
+		System.out.println(model.donnerToutesCommandes());
 	}
 
 	
 	static void afficherClients() {
-		for (Client c : ModelEatHub.clients.getToutClients()) {
-			System.out.println(c.getPrenom() + " addr: " + c.getAdresse() + " tel: " + c.getTelephoneNum());
-		}
-		// Comment temporaire
-		//System.out.println(model.donnerTousClients());
+		System.out.println(model.donnerTousClients());
 	}
 	
 	
@@ -107,6 +145,7 @@ public class UIEatHub {
 	
 	static void sauverDonnees() {
 		model.sauverDonnees();
+		System.out.println("Donnees sauveguarder!");
 	}
 	
 }

@@ -37,9 +37,9 @@ public class ClientManager implements Serializable {
 	}
 	
 	// ATTENTION: Si le client n'est pas trouver, null va etre retourner
-	public Client getClientByTel(String telephoneNum) {
+	public Client getClientByAbsTel(String telephoneNum) {
 		for (Client currentClient : clients.values()) {
-			if (telephoneNum.equalsIgnoreCase(currentClient.getTelephoneNum())) {
+			if (telephoneNum.equals(currentClient.getAbsoluteTelephoneNum())) {
 				return currentClient;
 			}
 		}
