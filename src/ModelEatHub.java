@@ -40,8 +40,10 @@ clients.add(nouveau);
 			return -1;
 	}
 	
-	public void effacerClient(int no) {
-    
+	public void effacerClient(int numeroClient) {
+    //clients.get(tel);
+    //clients.clear();
+    clients.remove(numeroClient);
 	}
 	
 	public String donnerToutesCommandes() {
