@@ -3,10 +3,10 @@ import java.util.HashMap;
 public class ModelEatHub {
 	 
 	//singleton
+	ModelEatHub model= new ModelEatHub();
+	ModelEatHub geInstance() {return model;}
+	//-----------------------------------------------------------------CLIENT--------------------------------------------------------------
 	public class Client{
-		ModelEatHub model= new ModelEatHub();
-		ModelEatHub geInstance() {return model;}
-		
 		public void Client(String tel,String prenom,String adresse,String ville) {
 			this.NumeroTel=tel;
 			this.Nom=prenom;
@@ -19,6 +19,7 @@ public class ModelEatHub {
 		public String Adresse;
 		public String ville;
 	}
+	//-----------------------------------------------------------COMMANDE-----------------------------------------------------------------
 	public class commande{
 		public void commande(String Commande,String heure, String tele) {
 			this.commandeclient=Commande;
@@ -29,6 +30,7 @@ public class ModelEatHub {
 		public String heuredecommande;
 		public String numtel;
 		}
+	//---------------------------------------------------------Hashmap infoclient--------------------------------------------------------
 	static HashMap<String, Client>clients = new HashMap<String, Client>();
 	public void ajouterClient(String tel, String prenom, String adresse, String ville) {
 		Client c = new Client();
@@ -38,6 +40,7 @@ public class ModelEatHub {
 		c.ville=ville;	
 		clients.put(tel,c);
 	}	
+	//--------------------------------------------------------Hashmap commande-------------------------------------------------------------
 	static HashMap<String, commande> comm = new HashMap<String, commande>();
 	public void ajouterCommande(String Commande, String heure,String tele) {
 		commande com=new commande();
@@ -46,31 +49,35 @@ public class ModelEatHub {
 		com.heuredecommande=heure;
 		comm.put(tele, com);
 	}
-	
+	//String pour afficher les commandes et clients
+	String afficherclient="";
+	String affichercommande="";
+	//----------------------------------------------------Code pour chaque section de l'app-----------------------------------------------
 	public Client trouvClient(String tel) {
 		ModelEatHub.Client client = clients.get(tel);
 		return client;
 	}
 	
 	public void effacerClient(Client c) {
-		//enlever info client
-		ModelEatHub.Client removed = clients.remove(c);
+		ModelEatHub.Client removed = clients.remove(c.NumeroTel);
+		System.out.print(removed.NumeroTel);
+	}
+	public void effacerCommande(commande com) {
+		ModelEatHub.commande removed2 = comm.remove(com.numtel);
+		System.out.print(removed2.numtel);
 	}
 	
-	String y="";
 	public String donnerToutesCommandes() {
         comm.forEach((tele, d) -> {
-            y+= "Client: (Téléphone: "+tele+"\n"+"Commande: " +d.commandeclient +"\n"+"Heure: "+d.heuredecommande+"\n";
+        	affichercommande+= "Client: (Téléphone: "+tele+")"+"\n"+"Commande: " +d.commandeclient +"\n"+"Heure: "+d.heuredecommande+"\n";
         });
-		return y;
+		return affichercommande;
 	}
-	String s = ""; 
 	public String donnerTousClients() {
-		s="";
         clients.forEach((tel, v) -> {
-            s+= "\n\nClient "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
+        	afficherclient+= "\n\nClient "+"\nTéléphone: "+ tel+"\n" +"Prénom: "+ v.Nom +"\n" +"Adresse: "+ v.Adresse+"\n" +"Ville: "+v.ville+"\n\n";
         });
-		return s;
+		return afficherclient;
 	}
 }
 
