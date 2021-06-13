@@ -112,7 +112,8 @@ public class UIEatHub {
 	static void effacerCommande() {
 			System.out.print("Quel est le telephone du client");
 			String tel = sca.next();
-			
+					int numclient2=model.trouvClient(tel);
+				model.effacerCommande(numclient2);
 			}
 	
 	
