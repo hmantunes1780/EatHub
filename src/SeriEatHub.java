@@ -16,16 +16,15 @@ public class SeriEatHub {
 	        File myObj = new File(nomFichier);
 	        Scanner myReader = new Scanner(myObj);
               
-              int i = 100;
-               while ( i = 0){
+               while (myReader.hasNextLine()) {
 
 	          //ajoute le 1er client
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();
 	          String adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse);
+	          model.ajouterClient(Tel, Nom,  adresse);
             
-            i++;
+          
                }
 
 	          
