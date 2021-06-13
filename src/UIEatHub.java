@@ -42,17 +42,17 @@ public class UIEatHub {
 	public static void ajouterClient() {
 		
 		
-		System.out.print("Ajouter le telephone:");
+		System.out.print("Ajoutez votre numéro de téléphone:");
 		String tel = sca.next();
 		
-        System.out.print("Ajouter l'addresse:");
+        System.out.print("Ajoutez l'adresse: ");
 		sca.nextLine();
 		String adr = sca.nextLine();
 		
-		System.out.print("Ajouter le prenom:");
+		System.out.print("Ajoutez votre prénom: ");
 		String prenom = sca.next();
 		
-		System.out.print("Ajouter la ville:");
+		System.out.print("Ajoutez votre ville: ");
 		String ville = sca.next();	
 	
 		model.ajouterClient(tel, prenom, adr, ville);
@@ -61,33 +61,39 @@ public class UIEatHub {
 	
 	static void ajouterCommande() {
 		
-		System.out.print("Ajouter le telephone");
+		System.out.print("Ajoutez le numéro de téléphone: ");
 		String tel = sca.next();
-	    
-		
+	
 		 if(ModelEatHub.clients.containsKey(tel)) {
-			System.out.print("Ajouter la commande");
+			System.out.print("Ajoutez la commande: ");
 			
 			sca.nextLine();
 			String com = sca.nextLine();
 			
 			
-			System.out.print("Ajouter l'heure de livraison");
+			System.out.print("Ajoutez l'heure de livraison: ");
 			
 			String liv = sca.next(); 
 			model.ajouterCommande(com, liv, tel);
 		 }
 		else {
-				System.err.print("Incorrecte numero de telephone");
+				System.err.println("Vous n'avez pas encore un compte!(Pensez à en créer un pour une expérience plus simple)");
+				ajouterClient();
+				System.out.println("BRAVO!! VOTRE COMPTE A ÉTÉ CRÉÉ!!! PASSEZ MAINTENANT VOTRE COMMANDE!\n");
+				ajouterCommande();
 		}
 		
 	}
 	
 	static void effacerClient() {
-		System.out.print("Ajouter le telephone");
+
+		System.out.print("Ajoutez le numéro de téléphone assimilé au client: ");
 		String tel = sca.next();	
+        model.trouvClient(tel);
 		
 		if(ModelEatHub.clients.containsKey(tel)) {
+			ModelEatHub.Client c = model.trouvClient(tel);
+			model.effacerClient(c);
 		}
 		else {
 			System.err.println("Pas un client.");
@@ -96,32 +102,17 @@ public class UIEatHub {
 	}
 	
 	static void effacerCommande() {
-		System.out.print("Ajouter le telephone");
-		String tel = sca.next();	
-		
-		if(ModelEatHub.clients.containsKey(tel)) {
-			
-
+		System.out.print("Ajoutez le numéro de téléphone assimilé à la commande: ");
+		String tele = sca.next();	
+		model.trouvClient(tele);
+		if(ModelEatHub.comm.containsKey(tele)) {
+			ModelEatHub.commande com = model.trouvCommande(tele);
+			model.effacerCommande(com);	
 		}
 		else {
 			System.err.println("Pas une commande.");
 
 		}
-	
-		/*System.out.println("Quel client?");
-		int lastClient  = sca.nextInt();
-		
-		System.out.print("Quelle commande?");
-		sca.nextLine();
-		String com = sca.nextLine(); 
-		
-		if(ModelEatHub.clients[lastClient][3].contains(com)) {
-			ModelEatHub.clients[lastClient][3] = null;
-		    ModelEatHub.clients[lastClient][4] = null;
-		}
-		else {
-			System.out.println("Pas une commande.");
-		}*/
 	}
 	
 	static void afficherCommandes() {
