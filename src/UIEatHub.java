@@ -88,15 +88,29 @@ public class UIEatHub {
   	static void effacerCommande() {   // 5. 
 		System.out.println("Donner votre numero de telephone:");
 		String tel = sca.next();
+
+
+    System.out.println("Quelle est la commande");
+    String commande = sca.next();
+
+
     int numeroClient = model.trouvClient(tel);
+    if (numeroClient!=-1) 
 		model.effacerClient(numeroClient);
 	}
 
 	static void effacerClient() {  // 6.
-		System.out.print("Quel est le teléphone du client");
-			String client = sca.next();		
+		System.out.print("Quel est le teléphone du client:");
+			String tel = sca.next();	
 
-			int numeroClient = model.trouvClient(client);
+    System.out.println("Ajouter le prenom:");
+		  String prenom = sca.next();
+
+    if (tel != prenom);
+      System.out.println("Ce client à été effacé");
+
+			int numeroClient = model.trouvClient(tel);
+      if (numeroClient!=-1) 
       model.effacerClient(numeroClient);
 	}
 			
