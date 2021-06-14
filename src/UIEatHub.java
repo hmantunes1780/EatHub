@@ -22,9 +22,9 @@ public class UIEatHub {
 
 			//suivant la reponse faire des choses differentes
 			switch (sca.nextInt()) {
-			case 1: ajouterClient(); break;
-			case 2: ajouterCommande(); break;
-			case 3: afficherClients(); break;
+			case 1: ajouterClient(); //afficherClients(); break;
+			case 2: ajouterCommande(); //break;
+			case 3: afficherClients(); //break;
 			case 4: afficherCommandes(); break;
 			case 5: effacerCommande(); break;
 			case 6: effacerClient(); break;
@@ -35,109 +35,51 @@ public class UIEatHub {
 		}
 	}
 
-	static void ajouterClient() {   // 1.
+	static void ajouterClient() {
 		
-		System.out.println("Ajouter le telephone:");
+		System.out.print("Ajouter le telephone");
 		String tel = sca.next();
-    
-		System.out.println("Ajouter le prenom:");
+
+		System.out.print("Ajouter le prenom:");
 		String prenom = sca.next();
 
-		System.out.println("Ajouter l'addresse:");
+		System.out.print("Ajouter l'addresse:");
 		String adr = sca.next();
-    sca.nextLine();
+
+		System.out.print("Ajouter la commande");
+		String com = sca.next();
 
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
-	static void ajouterCommande() {    // 2.
-		System.out.println("Ajouter le prenom:");
-    String prenom = sca.next();
-    
-    System.out.println("Quelle est la commande");
-    String commande = sca.next();
-
-    System.out.println("Quelle est l'heure de livraison");
-    String heur = sca.next();
-
-
-    int numeroClient = model.trouvClient(prenom);
-    if (numeroClient!=-1) 
-    model.ajouterCommande(numeroClient, commande,heur);
+	static void ajouterCommande() {
+		
 	}
 	
-  	static void afficherClients() {  // 3. 
-    System.out.println("Ajouter le telephone:");
-		  String tel = sca.next();
-
-    System.out.println("Ajouter le prenom:");
-      String prenom = sca.next();
-		  System.out.println(model.donnerTousClients());
-	}
-
-	static void afficherCommandes() {  // 4. 
-
-     System.out.println("Ajouter le telephone:");
-		 String tel = sca.next();
-
-	   System.out.println("Ajouter le prenom:");
-		 String prenom = sca.next();
-
-     System.out.println("Quelle est la commande");
-     String commande = sca.next();
-
-     System.out.print(model.donnerToutesCommandes());
-	}
-
-  	static void effacerCommande() {   // 5. 
-		System.out.println("Ajouter le prenom:");
-	 	String prenom = sca.next();
-
-
-    System.out.println("Quelle est la commande");
-    String commande = sca.next();
-
-    if (prenom != commande);
-      System.out.println("Cette commande à été effacé");
-
-    int numeroClient = model.trouvClient(prenom);
-    if (numeroClient!=-1) 
-		model.effacerClient(numeroClient);
-	}
-
-	static void effacerClient() {  // 6.
-		System.out.println("Ajouter le prenom:");
-		String prenom = sca.next();	
-
-    if (prenom != prenom);
-      System.out.println("Ce client à été effacé");
-
-			int numeroClient = model.trouvClient(prenom);
-      if (numeroClient!=-1) 
-      model.effacerClient(numeroClient);
-	}
-			
-	static void chargerDonnees() {  // 7. 
-		//SeriEatHub.chargerFichier("FichierEatHub.txt", model);
-    
-    System.out.println("Quel est le teléphone du client");
-      String client = sca.next();
-
-    System.out.println("Ajouter le prenom:");
-	 	  String prenom = sca.next();
-      
-		  System.out.println(model.donnerTousClients());
+	static void effacerClient() {
+		
 	}
 	
-	static void sauverDonnees() {  // 8. 
-		//SeriEatHub.sauverFichier("FichierEatHub2.txt", model);	
+	static void effacerCommande() {
+		
+	}
+	
+	static void afficherCommandes() {
+		
+	}
 
-  System.out.println("Ajouter le prenom:");
-	 	String prenom = sca.next();
-
-     System.out.println(model.donnerTousClients());
-
-  System.out.println("Vos données ont été sauvé");
+	
+	static void afficherClients() {
+		System.out.println(model.donnerTousClients());
+	}
+	
+	
+	static void chargerDonnees() {
+		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
+	}
+	
+	static void sauverDonnees() {
+		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);		
 	}
 	
 }
