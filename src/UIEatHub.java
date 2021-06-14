@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 /**
- * @ Cerise Camama
+ * @author Cerise
  *
  */
 public class UIEatHub {
