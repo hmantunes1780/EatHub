@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class SeriEatHub {
@@ -13,13 +14,15 @@ public class SeriEatHub {
 	          String Tel = myReader.nextLine();
 	          String Nom = myReader.nextLine();
 	          String adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse, "Mississauga");
+	          String ville=myReader.nextLine();
+	          model.ajouterClient(Tel, Nom, adresse,ville);
 
 	          //ajoute le 2e client
 	          Tel = myReader.nextLine();
 	          Nom = myReader.nextLine();
 	          adresse = myReader.nextLine();
-	          model.ajouterClient(Tel, Nom, adresse, "Mississauga");
+	          ville=myReader.nextLine();
+	          model.ajouterClient(Tel, Nom, adresse, ville);
 	          
 	        myReader.close();
 	      } catch (Exception e) {
@@ -29,9 +32,22 @@ public class SeriEatHub {
     }
 
 	public static void sauverFichier(String nomFichier, ModelEatHub model) {
-		
+		   try {
+		        FileWriter myWriter = new FileWriter(nomFichier);
+		        String s = model.donnerTousClients();
+		        myWriter.write(s);
+		        //myWriter.write();
+		        //myWriter.write();
+
+		        myWriter.close();
+		        System.out.println("Successfully wrote to the file.");
+		      } catch (Exception e) {
+		        System.out.println("An error occurred.");
+		        e.printStackTrace();
+		      }
+	    }
     }
 
 
 
-}
+
