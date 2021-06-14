@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class UIEatHub {
+public class Main {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	

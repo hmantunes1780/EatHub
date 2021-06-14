@@ -1,6 +1,0 @@
-(999)999-9999 	Jean-Marc	8 Young Street	null	null	
-(888)888-8888 	Louis	8 rue Lakeshore	null	null	
-416-789-1234	Mamadou	Lakeshore	null	null	
-null	null	null	null	null	
-null	null	null	null	null	
-
