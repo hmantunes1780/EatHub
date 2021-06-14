@@ -14,17 +14,9 @@ public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	
-    String[] nom = new String[15]; //nom des gens qui passent les commandes
-    String []nourriture = new String [4]; // commande
-    int[] temps = new int [4]; //temps de livraison
-    String [] adresses = new String [4]; // adresses des clients
-    int [] status = new int [4]; // le status de livraison
-    double [] prixTotal = new double [4]; // prix commande
 
-    
-    
-    String [] nomNourriture = {"TEST1\t","TEST2\t","TEST3\t"};
-   double [] prix = {4,5,6};
+  
+
    
    
     
@@ -63,63 +55,89 @@ public class UIEatHub {
 
 	static void ajouterClient() {
 		sca.nextLine();
-		System.out.print("Ajouter votre numero de telephone: ");
+		System.out.print("Ajouter votre numero de téléphone: ");
 		String tel = sca.nextLine();
 
-		System.out.print("Ajouter votre prenom: ");
+		System.out.print("Ajouter votre prénom: ");
 		String prenom = sca.nextLine();
 
 		System.out.print("Ajouter votre adresse: ");
 		String adr = sca.nextLine();
 	
 		model.ajouterClient(tel, prenom, adr);
-
+System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans notre système avec le téléphone" + " " + tel + " " + " et l'adresse" + " " + adr + "." + " " + "Veuillez entrer 2 si vous voulez commander!");
 	}
 
 	
-	String clientExistant = "";
+
 	
    static void ajouterCommande() {
 
-		System.out.print("Quel est le telephone du client");
+		System.out.print("Quel est le téléphone du client");
 		String client = sca.next();		
-
+	
 		System.out.print("Quel est la commande");
 		String commande = sca.next();		
 
 		System.out.print("Quel est l'heure de livraison");
 		String heure = sca.next();
 		
-		
 		int numclient=model.trouvClient(client);
-		if (numclient!=-1) model.ajouterCommande(numclient, commande, heure);
+		
+		if (numclient!=-1) {
+			model.ajouterCommande(numclient, commande, heure);
+			System.out.println("Votre commande de" + " " + commande + " " + "sera delivre a" + " " + heure + "!");
+		}
+	
 	}
 	
 	static void effacerClient() {
-		System.out.print("Quel est le telephone du client");
+		
+		System.out.print("Quel est le téléphone du client");
 		//int numclient= sca.nextInt();	
 		sca.nextLine();
 		String numclient= sca.nextLine();
 		model.trouvClient(numclient);
+		
 		int numclient1=model.trouvClient(numclient);
+	
 		if (numclient1!=-1) {
 			model.effacerClient(numclient1);
+			System.out.println(numclient1 + " " + "effacé dans notre systme!");
+		
 		} else {
-			System.err.println("Pas un client dans notre systeme");
+			System.err.println("Pas un client dans notre système");
 		}
 	}
-	// test
+
+	
 	static void effacerCommande() {
-			System.out.print("Quel est le telephone du client");
+			System.out.print("Quel est le téléphone du client?");
+			sca.nextLine();
 			String tel = sca.next();
-					int numclient2=model.trouvClient(tel);
-				model.effacerCommande(numclient2);
+		
+			int numclient2=model.trouvClient(tel);
+			
+			if (numclient2!=-1) {
+				effacerCommande();
+			} else {
+				System.err.println("Pas une commande dans notre système. SVP mettre le bon numéro!");
 			}
+
+	}
+
+
 	
 	
 	static void afficherCommandes() {
+	if (model.donnerToutesCommandes() == null) {
+		System.out.println("Aucune commande dans notre système");
+	} else {
 		System.out.print(model.donnerToutesCommandes());	
+	
 	}
+	
+	}	
 
 	static void afficherClients() {
 		System.out.println(model.donnerTousClients());
