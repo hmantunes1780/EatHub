@@ -100,7 +100,7 @@ public class UIEatHub {
 	}
 
 	static void effacerClient() {  // 6.
-		System.out.print("Quel est le teléphone du client:");
+		System.out.print("Quel est le teléphone du client:\n");
 			String tel = sca.next();	
 
     System.out.println("Ajouter le prenom:");
