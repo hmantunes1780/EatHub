@@ -23,7 +23,7 @@ public class UIEatHub {
 			//sca.nextLine();
 			System.out.println("\nVoulez-vous:\n"
 					+ "\t1. Ajouter un client\n"
-					+ "\t2. Passer une commade\n"
+					+ "\t2. Passer une commande\n"
 					+ "\t3. Afficher la liste de tous les clients\n"
 					+ "\t4. Afficher la liste de toutes les commandes\n"  
 					+ "\t5. Effacer une commade\n"
@@ -70,13 +70,13 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 	
    static void ajouterCommande() {
 
-		System.out.print("Quel est le téléphone du client");
+		System.out.print("Quel est le téléphone du client?");
 		String client = sca.next();		
 	
-		System.out.print("Quel est la commande");
+		System.out.print("Quel est la commande?");
 		String commande = sca.next();		
 
-		System.out.print("Quel est l'heure de livraison");
+		System.out.print("Quel est l'heure de livraison?");
 		String heure = sca.next();
 		
 		int numclient=model.trouvClient(client);
@@ -92,7 +92,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 	
 	static void effacerClient() {
 		
-		System.out.print("Quel est le téléphone du client");
+		System.out.print("Quel est le téléphone du client?");
 		//int numclient= sca.nextInt();	
 		sca.nextLine();
 		String numclient= sca.nextLine();
@@ -118,12 +118,12 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 				model.effacerCommande(numclient2);
 	
 				
-	/*	System.out.println("Voulez-vous effacer votre nom dans notre système? Si oui, inserez votre nom!");
+		System.out.println("Voulez-vous effacer votre nom dans notre système? Si oui, inserez votre nom!");
 		String prenom = sca.next();
 				
 		if (prenom == model.donnerTousClients()) {
 			model.effacerClient(numclient2);
-		} */
+		}
 
 	}
 
