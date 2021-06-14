@@ -51,7 +51,7 @@ public class UIEatHub {
 	}
 	
 	static void ajouterCommande() {    // 2.
-		System.out.println("Ajouter le prenom:");
+		System.out.println("Donner le prenom:");
     String prenom = sca.next();
     
     System.out.println("Quelle est la commande");
@@ -67,38 +67,19 @@ public class UIEatHub {
 	}
 	
   	static void afficherClients() {  // 3. 
-    System.out.println("Ajouter le telephone:");
-		  String tel = sca.next();
-
-    System.out.println("Ajouter le prenom:");
-      String prenom = sca.next();
+    
 		  System.out.println(model.donnerTousClients());
 	}
 
 	static void afficherCommandes() {  // 4. 
 
-     System.out.println("Ajouter le telephone:");
-		 String tel = sca.next();
-
-	   System.out.println("Ajouter le prenom:");
-		 String prenom = sca.next();
-
-     System.out.println("Quelle est la commande");
-     String commande = sca.next();
+  
 
      System.out.print(model.donnerToutesCommandes());
 	}
 
   	static void effacerCommande() {   // 5. 
-		System.out.println("Ajouter le prenom:");
-	 	String prenom = sca.next();
-
-
-    System.out.println("Quelle est la commande");
-    String commande = sca.next();
-
-    if (prenom != commande);
-      System.out.println("Cette commande à été effacé");
+		
 
     int numeroClient = model.trouvClient(prenom);
     if (numeroClient!=-1) 
@@ -106,31 +87,21 @@ public class UIEatHub {
 	}
 
 	static void effacerClient() {  // 6.
-		System.out.println("Ajouter le prenom:");
-		String prenom = sca.next();	
-
-    if (prenom != prenom);
-      System.out.println("Ce client à été effacé");
-
+		
 			int numeroClient = model.trouvClient(prenom);
       if (numeroClient!=-1) 
       model.effacerClient(numeroClient);
 	}
 			
 	static void chargerDonnees() {  // 7. 
-		//SeriEatHub.chargerFichier("FichierEatHub.txt", model);
+		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
     
-    System.out.println("Quel est le teléphone du client");
-      String client = sca.next();
-
-    System.out.println("Ajouter le prenom:");
-	 	  String prenom = sca.next();
       
 		  System.out.println(model.donnerTousClients());
 	}
 	
 	static void sauverDonnees() {  // 8. 
-		//SeriEatHub.sauverFichier("FichierEatHub2.txt", model);	
+		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);	
 
   System.out.println("Ajouter le prenom:");
 	 	String prenom = sca.next();
