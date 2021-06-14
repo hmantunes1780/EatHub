@@ -52,7 +52,7 @@ public class UIEatHub {
 	
 	static void ajouterCommande() {    // 2.
 		System.out.println("Ajouter le prenom:");
-    String prenon = sca.next();
+    String prenom = sca.next();
     
     System.out.println("Quelle est la commande");
     String commande = sca.next();
@@ -61,7 +61,7 @@ public class UIEatHub {
     String heur = sca.next();
 
 
-    int numeroClient = model.trouvClient(client);
+    int numeroClient = model.trouvClient(prenom);
     if (numeroClient!=-1) 
     model.ajouterCommande(numeroClient, commande,heur);
 	}
@@ -71,7 +71,7 @@ public class UIEatHub {
 		  String tel = sca.next();
 
     System.out.println("Ajouter le prenom:");
-      String prenon = sca.next();
+      String prenom = sca.next();
 		  System.out.println(model.donnerTousClients());
 	}
 
@@ -97,10 +97,10 @@ public class UIEatHub {
     System.out.println("Quelle est la commande");
     String commande = sca.next();
 
-    if (tel != commande);
+    if (prenom != commande);
       System.out.println("Cette commande à été effacé");
 
-    int numeroClient = model.trouvClient(tel);
+    int numeroClient = model.trouvClient(prenom);
     if (numeroClient!=-1) 
 		model.effacerClient(numeroClient);
 	}
@@ -109,13 +109,10 @@ public class UIEatHub {
 		System.out.println("Ajouter le prenom:");
 		String prenom = sca.next();	
 
-    System.out.println("Ajouter le prenom:");
-		  String prenom = sca.next();
-
-    if (tel != prenom);
+    if (prenom != prenom);
       System.out.println("Ce client à été effacé");
 
-			int numeroClient = model.trouvClient(tel);
+			int numeroClient = model.trouvClient(prenom);
       if (numeroClient!=-1) 
       model.effacerClient(numeroClient);
 	}
