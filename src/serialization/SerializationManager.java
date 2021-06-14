@@ -4,7 +4,10 @@ import serialization.config.ConfigParser;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import base.ModelEatHub;
 import client.ClientManager;
@@ -29,23 +32,47 @@ public class SerializationManager {
 			FileInputStream clientsFileIn = new FileInputStream(clientsFile);
 			ObjectInputStream clientsIn = new ObjectInputStream(clientsFileIn);
 			
+			ModelEatHub.setClients((ClientManager) clientsIn.readObject());			
+			clientsIn.close();
+		} catch (IOException e) {
+			System.err.println("Erreur lors de la deserialization de ClientManager!");
+		} catch (ClassNotFoundException e) {
+			System.err.println("Erreur ClientManager ClassNotFound!");
+		}
+		
+		try {
 			FileInputStream commandesFileIn = new FileInputStream(commandesFile);
 			ObjectInputStream commandesIn = new ObjectInputStream(commandesFileIn);
 			
-			ModelEatHub.setClients((ClientManager) clientsIn.readObject());
 			ModelEatHub.setCommandes((CommandeManager) commandesIn.readObject());
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la deserialization!");
+			commandesIn.close();
+		} catch (IOException e) {
+			System.err.println("Erreur lors de la deserialization de CommandeManager!");
+		} catch (ClassNotFoundException e) {
+			System.err.println("Erreur CommandeManager ClasseNotFound!");
 		}
 	}
 	
 	public void saveData() {
 		String clientsPath = (String) configParser.getValue("clientsavepath");
 		File clientsFile = new File(clientsPath);
-		ModelEatHub.clients.serialize(clientsFile);
+		resetFile(clientsFile);
 		
 		String commandesPath = (String) configParser.getValue("commandesavepath");
 		File commandesFile = new File(commandesPath);
-		ModelEatHub.clients.serialize(commandesFile);
+		resetFile(commandesFile);
+		
+		ModelEatHub.getInstance().clients.serialize(clientsFile);
+		ModelEatHub.getInstance().commandes.serialize(commandesFile);
+	}
+	
+	public void resetFile(File file) {
+		file.delete();
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			System.err.println("Erreur lors de la creation du fichier '" + file.getName() + "'");
+			e.printStackTrace();
+		}
 	}
 }

@@ -55,6 +55,7 @@ public class CommandeManager implements Serializable {
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			
 			out.writeObject(this);
+			out.close();
 		} catch (Exception e) {
 			System.err.println("Erreur lors de la serialization de CommandeManager!");
 		}

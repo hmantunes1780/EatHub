@@ -12,7 +12,7 @@ public class UIEatHub {
     static ModelEatHub model;
 	
 	public static void main(String[] args) {
-		model = new ModelEatHub();
+		model = ModelEatHub.getInstance();
 		sca = new Scanner(System.in);
 		while(true) {
 			System.out.println("\nVoulez-vous:\n"
@@ -100,6 +100,10 @@ public class UIEatHub {
 		String tel = sca.nextLine();
 		
 		HashMap<UUID, Entry<Integer, String>> commandes = model.getClientCommandes(tel);
+		if (commandes.isEmpty()) {
+			System.out.println("Aucune commande pour ce client...");
+			return;
+		}
 		System.out.println("Quelle commande voulez vous effacer?");
 		for (Entry<Integer, String> entry : commandes.values()) {
 			System.out.println(entry.getValue());
@@ -140,7 +144,15 @@ public class UIEatHub {
 	
 	
 	static void chargerDonnees() {                     
+		System.out.println("Quel est leur numero de telephone?");
+		String tel = sca.nextLine();
 		
+		Client client = model.trouvClient(tel);
+		if (client == null) {
+			System.out.println("Aucun client trouver...");
+			return;
+		}
+		System.out.println(ModelEatHub.printClient(client));
 	}
 	
 	static void sauverDonnees() {

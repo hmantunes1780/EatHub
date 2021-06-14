@@ -22,14 +22,20 @@ public class ModelEatHub {
 	public static CommandeManager commandes = new CommandeManager();
 	public static SerializationManager serialManager;
 	
-	public ModelEatHub() {
+	public static ModelEatHub INSTANCE;
+	
+	public static ModelEatHub getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new ModelEatHub();
+		}
+		return INSTANCE;
+	}
+	
+	private ModelEatHub() {
 		this.serialManager = new SerializationManager();
 	}
 	
 	public static void setClients(ClientManager clients) {
-		for (Client c : clients.getToutClients()) {
-			System.out.println(c.getAdresse() + " " + c.getTelephoneNum() + " " + c.getPrenom());
-		}
 		ModelEatHub.clients = clients;
 	}
 	
@@ -62,7 +68,6 @@ public class ModelEatHub {
 	
 	public Client trouvClient(String tel) {
 		return clients.getClientByAbsTel(Client.stripTelephoneNum(tel));
-		
 	}
 	
 	public void effacerClient(String tel) {
@@ -110,6 +115,12 @@ public class ModelEatHub {
 	
 	public void sauverDonnees() {
 		serialManager.saveData();
+	}
+	
+	public static String printClient(Client client) {
+		return "Tel: " + client.getTelephoneNum()
+		+ "\t Prenom: " + client.getPrenom()
+		+ "\t Adresse: " + client.getAdresse() + "\n";
 	}
 	
 	public String donnerTousClients() {
