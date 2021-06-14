@@ -79,7 +79,8 @@ public class UIEatHub {
 	}
 
   	static void effacerCommande() {   // 5. 
-		
+		System.out.println("Donner le prenom:");
+    String prenom = sca.next();
 
     int numeroClient = model.trouvClient(prenom);
     if (numeroClient!=-1) 
@@ -87,7 +88,9 @@ public class UIEatHub {
 	}
 
 	static void effacerClient() {  // 6.
-		
+		System.out.println("Donner le prenom:");
+    String prenom = sca.next();
+
 			int numeroClient = model.trouvClient(prenom);
       if (numeroClient!=-1) 
       model.effacerClient(numeroClient);
@@ -103,8 +106,7 @@ public class UIEatHub {
 	static void sauverDonnees() {  // 8. 
 		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);	
 
-  System.out.println("Ajouter le prenom:");
-	 	String prenom = sca.next();
+
 
      System.out.println(model.donnerTousClients());
 

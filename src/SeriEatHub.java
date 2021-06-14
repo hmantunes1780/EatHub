@@ -21,7 +21,11 @@ public class SeriEatHub {
 	          String Nom = myReader.nextLine();
 	          String adresse = myReader.nextLine();
 	          model.ajouterClient(Tel, Nom, adresse);
-
+            String commande = myReader.nextLine();
+            String heure = myReader.nextLine();
+            int client=model.trouvClient(Tel);
+            model.ajouterCommande(client, commande, heure);
+ 
 	        }
 	        
 	        myReader.close();
