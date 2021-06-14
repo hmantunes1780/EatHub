@@ -14,9 +14,6 @@ public class UIEatHub {
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
 	
-
-  
-
    
    
     
@@ -86,7 +83,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		
 		if (numclient!=-1) {
 			model.ajouterCommande(numclient, commande, heure);
-			System.out.println("Votre commande de" + " " + commande + " " + "sera delivre a" + " " + heure + "!");
+			System.out.println("Votre commande de" + " " + commande + " " + "sera delivré à" + " " + heure + "!");
 		}
 	
 	}
@@ -103,7 +100,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 	
 		if (numclient1!=-1) {
 			model.effacerClient(numclient1);
-			System.out.println(numclient1 + " " + "effacé dans notre systme!");
+			System.out.println(numclient1 + " " + "effacé dans notre système!");
 		
 		} else {
 			System.err.println("Pas un client dans notre système");
@@ -113,16 +110,11 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 	
 	static void effacerCommande() {
 			System.out.print("Quel est le téléphone du client?");
-			sca.nextLine();
 			String tel = sca.next();
-		
+	
 			int numclient2=model.trouvClient(tel);
-			
-			if (numclient2!=-1) {
-				effacerCommande();
-			} else {
-				System.err.println("Pas une commande dans notre système. SVP mettre le bon numéro!");
-			}
+				model.effacerCommande(numclient2);
+	
 
 	}
 
