@@ -135,9 +135,9 @@ public class UIEatHub {
   System.out.println("Ajouter le prenom:");
 	 	String prenom = sca.next();
 
-  System.out.println("Vos données ont été sauvé");
+     System.out.println(model.donnerTousClients());
 
-  System.out.println(model.donnerTousClients());
+  System.out.println("Vos données ont été sauvé");
 	}
 	
 }
