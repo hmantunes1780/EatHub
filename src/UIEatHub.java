@@ -1,10 +1,5 @@
 import java.util.HashMap;
 import java.util.Scanner;
-
-
-
-
-
 /**
  * @ Cerise Camama
  *
@@ -13,7 +8,7 @@ public class UIEatHub {
 	
 	static Scanner sca = new Scanner(System.in);  // Create a Scanner object
     static ModelEatHub model = new ModelEatHub(); 
-	
+ //-----------------------------------------------------------------Choisissez une option--------------------------------------------------------------
 	public static void main(String[] args) {
 		while(true) {
 	
@@ -44,17 +39,18 @@ public class UIEatHub {
 		}
 	}
 
-	static void ajouterClient() {
+//-----------------------------------------------------------------Ajouter--------------------------------------------------------------	
+	public static void ajouterClient() {
 		
 		
-		System.out.print("Ajoutez votre numéro de téléphone:");
+		System.out.print("Ajoutez votre numero de telephone:");
 		String tel = sca.next();
 		
         System.out.print("Ajoutez l'adresse: ");
 		sca.nextLine();
 		String adr = sca.nextLine();
 		
-		System.out.print("Ajoutez votre prénom: ");
+		System.out.print("Ajoutez votre prenom: ");
 		String prenom = sca.next();
 		
 		System.out.print("Ajoutez votre ville: ");
@@ -66,11 +62,10 @@ public class UIEatHub {
 	
 	static void ajouterCommande() {
 		
-		System.out.print("Ajoutez le numéro de téléphone: ");
+		System.out.print("Ajoutez le numero de telephone: ");
 		String tel = sca.next();
 	
 		 if(ModelEatHub.clients.containsKey(tel)) {
-			
 			System.out.print("Ajoutez la commande: ");
 			
 			sca.nextLine();
@@ -83,23 +78,28 @@ public class UIEatHub {
 			model.ajouterCommande(com, liv, tel);
 		 }
 		else {
-				System.err.println("Vous n'avez pas encore un compte!(Pensez à en créer un pour une expérience plus simple)");
+				System.err.println("Vous n'avez pas encore un compte!(Pensez a en creer un pour une experience plus simple)");
 				ajouterClient();
-				System.out.println("BRAVO!! VOTRE COMPTE A ÉTÉ CRÉÉ!!! PASSEZ MAINTENANT VOTRE COMMANDE!\n");
+				System.out.println("BRAVO!! VOTRE COMPTE A ETE CREE!!! PASSEZ MAINTENANT VOTRE COMMANDE!\n");
 				ajouterCommande();
 		}
 		
 	}
 	
+//-----------------------------------------------------------------Effacer--------------------------------------------------------------
 	static void effacerClient() {
 
-		System.out.print("Ajoutez le numéro de téléphone assimilé au client: ");
+		System.out.print("Ajoutez le numero de telephone assimile au client: ");
 		String tel = sca.next();	
         model.trouvClient(tel);
-		
+        String tele = tel;
+        model.trouvClient(tele);
+        
 		if(ModelEatHub.clients.containsKey(tel)) {
 			ModelEatHub.Client c = model.trouvClient(tel);
 			model.effacerClient(c);
+			ModelEatHub.commande com = model.trouvCommande(tele);
+			model.effacerCommande(com);
 		}
 		else {
 			System.err.println("Pas un client.");
@@ -108,7 +108,7 @@ public class UIEatHub {
 	}
 	
 	static void effacerCommande() {
-		System.out.print("Ajoutez le numéro de téléphone assimilé à la commande: ");
+		System.out.print("Ajoutez le numero de telephone assimile a la commande: ");
 		String tele = sca.next();	
 		model.trouvClient(tele);
 		if(ModelEatHub.comm.containsKey(tele)) {
@@ -121,6 +121,7 @@ public class UIEatHub {
 		}
 	}
 	
+//-----------------------------------------------------------------Afficher--------------------------------------------------------------
 	static void afficherCommandes() {
 		System.out.print(model.donnerToutesCommandes());
 	}
@@ -130,7 +131,7 @@ public class UIEatHub {
 		System.out.println(model.donnerTousClients());
 	}
 	
-	
+//-----------------------------------------------------------------Charger---------------------------------------------------------------	
 	static void chargerDonnees() {
 		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
 	}
