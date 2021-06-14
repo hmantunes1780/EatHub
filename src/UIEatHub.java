@@ -1,5 +1,10 @@
 import java.util.HashMap;
 import java.util.Scanner;
+
+
+
+
+
 /**
  * @ Cerise Camama
  *
@@ -39,7 +44,7 @@ public class UIEatHub {
 		}
 	}
 
-	public static void ajouterClient() {
+	static void ajouterClient() {
 		
 		
 		System.out.print("Ajoutez votre numéro de téléphone:");
@@ -65,6 +70,7 @@ public class UIEatHub {
 		String tel = sca.next();
 	
 		 if(ModelEatHub.clients.containsKey(tel)) {
+			
 			System.out.print("Ajoutez la commande: ");
 			
 			sca.nextLine();

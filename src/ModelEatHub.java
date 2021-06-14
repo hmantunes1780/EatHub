@@ -1,9 +1,13 @@
 import java.util.HashMap;
 
+/**
+ * 
+ * @author cedric
+ *
+ */
+
 public class ModelEatHub {
-	 
-	
-	
+	 	
 	//-----------------------------------------------------------------CLIENT--------------------------------------------------------------
 	public class Client{
 		//singleton
@@ -11,7 +15,7 @@ public class ModelEatHub {
 		ModelEatHub geInstance() {return model;}
 		
 		public void Client(String tel,String prenom,String adresse,String ville) {
-			this.NumeroTel=tel; this.Nom=prenom; this.Adresse=adresse; this.ville=ville;	
+			this.NumeroTel=tel; this.Nom=prenom; this.Adresse=adresse; this.ville=ville;
 		}
 		public String NumeroTel,Nom, Adresse, ville;
 	}
@@ -20,7 +24,7 @@ public class ModelEatHub {
 	public class commande{
 		
 		public void commande(String Commande,String heure, String tele) {
-			this.commandeclient=Commande; this.heuredecommande=heure; this.numtel=tele;
+			this.commandeclient=Commande; this.heuredecommande=heure; this.numtel=tele; 
 		}
 		public String commandeclient, heuredecommande, numtel;
 		}
@@ -43,7 +47,7 @@ public class ModelEatHub {
 		comm.put(tele, com);
 	}
 	
-	//String pour afficher les commandes et clients
+	//String pour afficher les commandes et clients(utile pour la section afficher client et commande)
 	String afficherclient="";
 	String affichercommande="";
 	
