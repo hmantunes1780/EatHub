@@ -35,7 +35,7 @@ public class UIEatHub {
 		}
 	}
 
-	static void ajouterClient() {
+	static void ajouterClient() {   // 1.
 		
 		System.out.println("Ajouter le telephone:");
 		String tel = sca.next();
@@ -53,7 +53,7 @@ public class UIEatHub {
 		model.ajouterClient(tel, prenom, adr);
 	}
 	
-	static void ajouterCommande() {    // 1.
+	static void ajouterCommande() {    // 2.
 		System.out.println("Quel est le teléphone du client");
     String client = sca.next();
 
@@ -69,22 +69,12 @@ public class UIEatHub {
     model.ajouterCommande(numeroClient, commande,heur);
 	}
 	
-	static void effacerClient() {  // 2.
-		System.out.print("Quel est le teléphone du client");
-			String client = sca.next();		
-
-			int numeroClient = model.trouvClient(client);
-      model.effacerClient(numeroClient);
-
+  	static void afficherClients() {  // 3. 
+     	System.out.println("Quel est le teléphone du client");
+      String client = sca.next();
+		  System.out.println(model.donnerTousClients());
 	}
-	
-	static void effacerCommande() {   // 3. 
-		System.out.println("Donner votre numero de telephone:");
-		String tel = sca.next();
-    int numeroClient = model.trouvClient(tel);
-		model.effacerClient(numeroClient);
-	}
-	
+
 	static void afficherCommandes() {  // 4. 
 	    System.out.println("Quel est le teléphone du client");
     String client = sca.next();
@@ -95,17 +85,26 @@ public class UIEatHub {
      System.out.print(model.donnerToutesCommandes());
 	}
 
-	
-	static void afficherClients() {  // 5. 
-		System.out.println(model.donnerTousClients());
+  	static void effacerCommande() {   // 5. 
+		System.out.println("Donner votre numero de telephone:");
+		String tel = sca.next();
+    int numeroClient = model.trouvClient(tel);
+		model.effacerClient(numeroClient);
 	}
-	
-	
-	static void chargerDonnees() {  // 6. 
+
+	static void effacerClient() {  // 6.
+		System.out.print("Quel est le teléphone du client");
+			String client = sca.next();		
+
+			int numeroClient = model.trouvClient(client);
+      model.effacerClient(numeroClient);
+	}
+			
+	static void chargerDonnees() {  // 7. 
 		SeriEatHub.chargerFichier("FichierEatHub.txt", model);
 	}
 	
-	static void sauverDonnees() {  // 7. 
+	static void sauverDonnees() {  // 8. 
 		SeriEatHub.sauverFichier("FichierEatHub2.txt", model);		
 	}
 	
