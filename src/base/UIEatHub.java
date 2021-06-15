@@ -31,7 +31,7 @@ public class UIEatHub {
 			try {
 				input = Integer.valueOf(sca.nextLine());
 			} catch (Exception e) {
-				System.out.println("Entre un numero de 1 a 9!");
+				System.out.println(" Veuillez entrer un numero de 1 a 9!");
 				continue;
 			}
 			
@@ -70,7 +70,7 @@ public class UIEatHub {
 		String existantClient = sca.nextLine();
 		Client client = null;
 		if(existantClient.equalsIgnoreCase("O")) {
-			System.out.println("Quel est votre numéro de téléphone?");
+			System.out.println("Quel est votre numéro de telephone?");
 			String TelClientExist = sca.nextLine();
 			client = model.trouvClient(TelClientExist);
 		} else {
@@ -113,7 +113,7 @@ public class UIEatHub {
 			try {
 				index = Integer.valueOf(sca.nextLine());
 				if (index > commandes.size() || index < 1) {
-					System.out.println("Aucune commande trouver! Essaie encore.");
+					System.out.println("Aucune commande trouvée! Essaie encore.");
 					continue;
 				}
 				break;
@@ -127,7 +127,7 @@ public class UIEatHub {
 			
 			if (entry.getKey() == index) {
 				model.effacerCommande(key);
-				System.out.println("Commande effacer!");
+				System.out.println("Commande effacée!");
 				break;
 			}
 		}
@@ -149,7 +149,7 @@ public class UIEatHub {
 		
 		Client client = model.trouvClient(tel);
 		if (client == null) {
-			System.out.println("Aucun client trouver...");
+			System.out.println("Aucun client trouvé...");
 			return;
 		}
 		System.out.println(ModelEatHub.printClient(client));
@@ -157,7 +157,7 @@ public class UIEatHub {
 	
 	static void sauverDonnees() {
 		model.sauverDonnees();
-		System.out.println("Donnees sauveguarder!");
+		System.out.println("Données sauvegardées!");
 	}
 	
 }

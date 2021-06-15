@@ -53,7 +53,7 @@ public class ClientManager implements Serializable {
 			
 			out.writeObject(this);
 		} catch (Exception e) {
-			System.err.println("Erreur lors de la serialization de ClientManager!");
+			System.err.println("Erreur lors de la serialisation de ClientManager!");
 			e.printStackTrace();
 		}
 	}
