@@ -106,7 +106,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 System.out.println("Vous avez commandé: Burger!");
 		 System.out.println("L'heure de livraison:" + " " + heure + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");
-		  
+		 break;
 		  
 		  case 2:
 			  prix = 10.0;
@@ -130,7 +130,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 System.out.println("Vous avez commandé: Salade!");
 		 System.out.println("L'heure de livraison:" + " " + heure1 + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");	  
-		  
+		 break;
 		  
 		  case 3:
 			  prix = 5.0;
@@ -149,12 +149,15 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 			if (numclient2!=-1) {
 				model.ajouterCommande(numclient2, commande, heure2); 
 			}
+			
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
 		 System.out.println("Vous avez commandé: Poutine!");
 		 System.out.println("L'heure de livraison:" + " " + heure2 + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");	  
-		 
+		 break;
+		  
+		  
 		  case 4:
 			  prix = 10.0;
 			  sca.nextLine();
@@ -177,7 +180,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 System.out.println("Vous avez commandé: Pizza!");
 		 System.out.println("L'heure de livraison:" + " " + heure3 + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");	   
-		  
+		  break;
 		  
 		  
 		  case 5:
@@ -202,7 +205,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 System.out.println("Vous avez commandé: Poutine!");
 		 System.out.println("L'heure de livraison:" + " " + heure4 + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");	  
-		 
+		 break;
 		  
 		  
 		  
