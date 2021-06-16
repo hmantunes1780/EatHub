@@ -94,13 +94,15 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 while (heure < 9 || heure>20) {
 			 System.out.println("Le temps que vous avez entrer ne peut pas être plus bas que 9 heure du matin ou plus haut que 8 heure du soir");
 			 heure = sca.nextInt();
-		 }
-		 
-		 int numclient=model.trouvClient(client);
 			
+		
+	}
+		 int numclient=model.trouvClient(client);
 			if (numclient!=-1) {
-				model.ajouterCommande(numclient, commande, heure); 
-			}
+				model.ajouterCommande(numclient, client, client);
+	
+
+	 } 
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
 		 System.out.println("Vous avez commandé: Burger!");
@@ -123,7 +125,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 int numclient1=model.trouvClient(client1);
 			
 			if (numclient1!=-1) {
-				model.ajouterCommande(numclient1, commande, heure1); 
+				model.ajouterCommande(numclient1, client1, client1);
 			}
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
@@ -147,7 +149,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 int numclient2=model.trouvClient(client2);
 			
 			if (numclient2!=-1) {
-				model.ajouterCommande(numclient2, commande, heure2); 
+				model.ajouterCommande(numclient2, client2, client2);
 			}
 			
 		  
@@ -173,7 +175,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 int numclient3=model.trouvClient(client3);
 			
 			if (numclient3!=-1) {
-				model.ajouterCommande(numclient3, commande, heure3); 
+				model.ajouterCommande(numclient3, client3, client3);
 			}
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
@@ -198,7 +200,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 int numclient4=model.trouvClient(client4);
 			
 			if (numclient4!=-1) {
-				model.ajouterCommande(numclient4, commande, heure4); 
+				model.ajouterCommande(numclient4, client4, client4);
 			}
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
@@ -208,36 +210,9 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 break;
 		  
 		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  } // end of switch
-		  
-		  
-		   
+		  } 
+	}
 	
-		  
-		  
-		  
-		  
-		  
-		   
-		   
-		   
-}
-
-
-	
-
-	
-  
 	
 	static void effacerClient() {
 		
@@ -251,12 +226,13 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		if (numclient1!=-1) {
 			
 			model.effacerClient(numclient1);
-			System.out.println(numclient1 + " " + "effacé dans notre système!");
+			System.out.println("Numéro de téléphone a été effacé dans notre système!");
 		
 		} else {
 			System.err.println("Pas un client dans notre système");
 		}
 	}
+	
 
 	
 	static void effacerCommande() {
