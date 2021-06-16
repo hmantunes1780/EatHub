@@ -31,7 +31,7 @@ public class SeriEatHub {
 	          
 	        myReader.close();
 	      } catch (Exception e) {
-	        System.out.println("An error occurred.");
+	          System.err.println("Erreure!");
 	        e.printStackTrace();
 	      }
     }
@@ -45,9 +45,9 @@ public class SeriEatHub {
 	        //myWriter.write();
 
 	        myWriter.close();
-	        System.out.println("Successfully wrote to the file.");
+	       System.out.println("Vos données sont maintenant dans notre système!");
 	      } catch (Exception e) {
-	        System.out.println("An error occurred.");
+	        System.err.println("Erreure!");
 	        e.printStackTrace();
 	      }
     }
