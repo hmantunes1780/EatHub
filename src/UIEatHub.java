@@ -77,7 +77,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		  System.out.println("2. Salade");
 		  System.out.println("3. Poutine");
 		  System.out.println("4. Pizza");
-		  System.out.println("5. Lasagna");
+		  System.out.println("5. Lasagne");
 		  System.out.println("------------MENU------------");
 		  System.out.println("Veuillez faire votre choix!");
 		  int commande = sca.nextInt();
@@ -133,7 +133,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		 break;
 		  
 		  case 3:
-			  prix = 5.0;
+			  prix = 7.0;
 			  sca.nextLine();
 			  System.out.println("Veuillez entrer votre numéro de téléphone:");
 			  String client2 = sca.nextLine();
@@ -159,7 +159,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 		  
 		  
 		  case 4:
-			  prix = 10.0;
+			  prix = 12.0;
 			  sca.nextLine();
 			  System.out.println("Veuillez entrer votre numéro de téléphone:");
 			  String client3 = sca.nextLine();
@@ -202,7 +202,7 @@ System.out.println("Votre nom," + " " + prenom + " " + "a été ajouté dans not
 			}
 		  
 		 System.out.println("Votre commande est passé dans notre système!");
-		 System.out.println("Vous avez commandé: Poutine!");
+		 System.out.println("Vous avez commandé: Lasagne!");
 		 System.out.println("L'heure de livraison:" + " " + heure4 + "h");
 		 System.out.println("Prix du burger:" + " " + prix + "$");	  
 		 break;
