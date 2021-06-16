@@ -15,8 +15,8 @@ public class ModelEatHub {
 		lastClient++;
 	}
 
-	public void ajouterCommande(int client, String Commande, String heure) {
-		clients[client][3] = Commande;
+	public void ajouterCommande(int client, String commande, String heure) {
+		clients[client][3] = commande;
 		clients[client][4] = heure;
 	}
 
@@ -43,13 +43,15 @@ public class ModelEatHub {
 				sortie += s + "\t";
 			sortie += "\n";
 		}
+		
 		return sortie;
 	}
 
 	public String donnerTousClients() {
 		String sortie="";
 		for(int i = 0; i < lastClient; i++) {
-			sortie+=clients[i][0]+clients[i][1]+clients[i][2]+"\n"; 	
+			sortie+=clients[i][0] + " " +clients[i][1]+ " " + clients[i][2]+"\n"; 	
+			
 			}
 		return sortie;
 		
